@@ -5,6 +5,48 @@
     <title>الشيخ مصطفى إسماعيل - جميع السور</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        
+
+
+
+/* حل مشكلة القائمة الجانبية في الموبايل */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    right: -100%; /* نخفي القائمة برة الشاشة */
+    width: 70%;
+    height: 100%;
+    background: #fff;
+    box-shadow: -2px 0 8px rgba(0,0,0,0.2);
+    transition: right 0.3s ease-in-out;
+    z-index: 1000;
+    overflow-y: auto;
+  }
+
+  .sidebar.active {
+    right: 0; /* تظهر القائمة */
+  }
+
+  /* زر لفتح القائمة */
+  .menu-toggle {
+    display: block;
+    background: #2c3e50;
+    color: #fff;
+    padding: 10px 15px;
+    cursor: pointer;
+    text-align: center;
+  }
+}
+
+/* في الشاشات الكبيرة تفضل زي ما هي */
+@media (min-width: 769px) {
+  .menu-toggle {
+    display: none;
+  }
+}
+
+
         body {
             font-family: 'Cairo', Arial, sans-serif;
             background: linear-gradient(120deg, #148b4e 0%, #eafaf1 100%);
@@ -84,6 +126,9 @@
     <div style="font-weight:bold; color:#148b4e; margin-bottom:8px; text-align:center; font-size:1em;">السور</div>
     <ul id="surah-list" style="list-style:none; padding:0; margin:0;"></ul>
 </div>
+    
+    <div class="menu-toggle">☰ القائمة</div> <!---->
+
 <div class="container">
     <div class="header-row">
         <span class="reciter-name">الشيخ مصطفى إسماعيل</span>
@@ -335,5 +380,18 @@
         });
     </script>
 </div>
+
+    <script>
+  const sidebar = document.querySelector('.sidebar');
+  const toggleBtn = document.querySelector('.menu-toggle');
+
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('active');
+    });
+  }
+</script>
+
 </body>
+
 </html>
