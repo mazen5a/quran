@@ -80,6 +80,9 @@
     </style>
 </head>
 <body>
+    <!-- زر تبديل إخفاء/إظهار القائمة الجانبية (عائم) -->
+    <button id="toggleSideBtn" aria-controls="side-menu" aria-expanded="true" title="إخفاء/إظهار القائمة" style="position:fixed; top:16px; right:10px; z-index:1001; background:#148b4e; color:#fff; border:none; padding:8px 12px; border-radius:20px; cursor:pointer; box-shadow:0 2px 6px rgba(0,0,0,0.12); font-weight:bold;">إخفاء القائمة</button>
+    
 <div id="side-menu" style="position:fixed; top:60px; right:10px; width:130px; max-height:70vh; overflow-y:auto; background:#fff; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.10); padding:8px 4px; z-index:1000;">
     <div style="font-weight:bold; color:#148b4e; margin-bottom:8px; text-align:center; font-size:1em;">السور</div>
     <ul id="surah-list" style="list-style:none; padding:0; margin:0;"></ul>
@@ -422,6 +425,39 @@ surahs.forEach((s, i) => {
     li.appendChild(a);
     surahList.appendChild(li);
 });
+
+// إضافة وظيفة إخفاء/إظهار القائمة وحفظ الحالة
+const toggleBtn = document.getElementById('toggleSideBtn');
+const sideMenu = document.getElementById('side-menu');
+
+function updateToggleButton() {
+    const isHidden = sideMenu.style.display === 'none';
+    toggleBtn.textContent = isHidden ? 'إظهار القائمة' : 'إخفاء القائمة';
+    toggleBtn.setAttribute('aria-expanded', String(!isHidden));
+}
+
+toggleBtn.addEventListener('click', function() {
+    const isHidden = sideMenu.style.display === 'none';
+    if (isHidden) {
+        sideMenu.style.display = '';
+    } else {
+        sideMenu.style.display = 'none';
+    }
+    // حفظ الحالة
+    try {
+        localStorage.setItem('sideMenuHidden', sideMenu.style.display === 'none' ? '1' : '0');
+    } catch (e) { /* تجاهل أخطاء التخزين */ }
+    updateToggleButton();
+});
+
+// تهيئة حالة القائمة عند تحميل الصفحة (انظر إذا كان المستخدم أخفاها سابقاً)
+try {
+    const saved = localStorage.getItem('sideMenuHidden');
+    if (saved === '1') {
+        sideMenu.style.display = 'none';
+    }
+} catch (e) { /* تجاهل أخطاء التخزين */ }
+updateToggleButton();
         </script>
     </div>
 </body>
