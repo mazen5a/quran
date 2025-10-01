@@ -89,7 +89,10 @@
     </ul>
 </div> 
 
+<!-- زر تبديل إخفاء/إظهار القائمة الجانبية (عائم) -->
+<button id="toggleSideBtn" aria-controls="side-menu" aria-expanded="true" title="إخفاء/إظهار القائمة" style="position:fixed; top:16px; right:10px; z-index:1001; background:#148b4e; color:#fff; border:none; padding:8px 12px; border-radius:20px; cursor:pointer; box-shadow:0 2px 6px rgba(0,0,0,0.12); font-weight:bold;">إخفاء القائمة</button>
 
+<!-- أضف هذا الكود قبل <div class="container"> مباشرة لجعل القائمة الجانبية صغيرة وأنيقة -->
 
     <div class="container">
           <div class="header-row">
@@ -1573,7 +1576,25 @@ surahs.forEach((s, i) => {
     li.appendChild(a);
     surahList.appendChild(li);
 }); 
+
+ }
+    // حفظ الحالة
+    try {
+        localStorage.setItem('sideMenuHidden', sideMenu.style.display === 'none' ? '1' : '0');
+    } catch (e) { /* تجاهل أخطاء التخزين */ }
+    updateToggleButton();
+});
+
+// تهيئة حالة القائمة عند تحميل الصفحة (انظر إذا كان المستخدم أخفاها سابقاً)
+try {
+    const saved = localStorage.getItem('sideMenuHidden');
+    if (saved === '1') {
+        sideMenu.style.display = 'none';
+    }
+} catch (e) { /* تجاهل أخطاء التخزين */ }
+updateToggleButton();           
         </script>
     </div>
 </body>
 </html>
+
