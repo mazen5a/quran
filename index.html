@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="utf-8">
+    <title>منصة تلاوة القرآن الكريم</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="استمع لتلاوات أشهر القراء بدون تسجيل دخول.">
+    <meta name="keywords" content="قرآن, تلاوة, قراء, محمد صديق المنشاوي, عبد الباسط عبد الصمد, محمود خليل الحصري, مصطفى إسماعيل">
+      <meta name="author" content="mohamed ahmed mohamed ghazly"> <!-- اسم الكاتب -->
+    <style>
+        body {
+            font-family: 'Cairo', Arial, sans-serif;
+            background: linear-gradient(120deg, #148b4e 0%, #eafaf1 100%);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+        .planet-bg {
+            position: relative;
+            width: 100vw;
+            min-height: 220px;
+            background: linear-gradient(120deg, #273c75 0%, #44bd32 100%);
+            box-shadow: 0 2px 12px rgba(39,60,117,0.08);
+            z-index: 2;
+        }
+        .planet-core {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            font-size: 4.5em;
+            filter: drop-shadow(0 0 18px #44bd32cc);
+            z-index: 4;
+        }
+        header {
+            background: none;
+            color: #ebe4e4;
+            text-align: center;
+            padding: 30px 0 10px 0;
+            position: relative;
+            z-index: 5;
+            text-shadow: 0 2px 8px #192a56cc;
+        }
+        nav {
+            background: #353b48;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.2s;
+        }
+        nav a:hover {
+            color: #fbc531;
+        }
+        .container {
+            max-width: 700px;
+            margin: 30px auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            padding: 30px;
+        }
+        .reciter {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #eee;
+            padding: 18px 0;
+        }
+        .reciter:last-child {
+            border-bottom: none;
+        }
+        .reciter-name {
+            font-size: 1.2em;
+            color: #192a56;
+            font-weight: bold;
+        }
+        .enter-btn {
+            background: linear-gradient(90deg, #44bd32 0%, #0097e6 100%);
+            color: #fff;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.08em;
+            font-weight: bold;
+            box-shadow: 0 4px 16px rgba(68,189,50,0.10), 0 1.5px 6px rgba(0,151,230,0.10);
+            transition: background 0.4s, transform 0.2s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .enter-btn:hover {
+            background: linear-gradient(90deg, #0097e6 0%, #44bd32 100%);
+            transform: translateY(-3px) scale(1.04);
+            box-shadow: 0 8px 24px rgba(0,151,230,0.13), 0 2.5px 10px rgba(68,189,50,0.13);
+        }
+        footer {
+            background: #353b48;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 40px;
+        }
+        /* رسالة الصلاة على النبي */
+        .modal-overlay {
+            position: fixed;
+            top: 0; right: 0; bottom: 0; left: 0;
+            background: rgba(0,0,0,0.45);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-box {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.13);
+            padding: 32px 28px 24px 28px;
+            text-align: center;
+            position: relative;
+            min-width: 270px;
+            max-width: 90vw;
+        }
+        .modal-close {
+            position: absolute;
+            left: 12px;
+            top: 12px;
+            background: #e84118;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            font-size: 1.3em;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .modal-close:hover {
+            background: #c23616;
+        }
+        .modal-title {
+            font-size: 1.25em;
+            color: #148b4e;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .modal-emoji {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+        }
+        /* لافتة غزة */
+        .gaza-banner {
+            width: 100vw;
+            background: linear-gradient(90deg, #006266 0%, #e84118 100%);
+            color: #fff;
+            text-align: center;
+            font-size: 1.25em;
+            font-weight: bold;
+            letter-spacing: 1px;
+            padding: 12px 0 10px 0;
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            z-index: 10000;
+            box-shadow: 0 2px 12px #00626633;
+            animation: gazaPulse 1.2s infinite alternate;
+        }
+        .gaza-banner span {
+            display: inline-block;
+            animation: gazaText 2.5s infinite alternate;
+        }
+        @keyframes gazaPulse {
+            0% { filter: brightness(1) drop-shadow(0 0 0 #e84118); }
+            100% { filter: brightness(1.15) drop-shadow(0 0 12px #e84118cc); }
+        }
+        @keyframes gazaText {
+            0% { letter-spacing: 1px; transform: scale(1);}
+            100% { letter-spacing: 4px; transform: scale(1.07);}
+        }
+        body {
+            padding-top: 52px !important; /* حتى لا يغطي البانر الصفحة */
+        }
+    </style>
+</head>
+<body>
+    <!-- نافذة الصلاة على النبي -->
+    <div id="salatModal" class="modal-overlay">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeSalatModal()" title="إغلاق">×</button>
+            <div class="modal-emoji">🕋</div>
+            <div class="modal-title">صَلِّ على محمد ﷺ</div>
+            <div style="color:#273c75;margin-top:8px;">اللهم صل وسلم وبارك على سيدنا محمد</div>
+        </div>
+    </div>
+    <div class="planet-bg">
+        <span class="planet-core">📖</span>
+        <header>
+            <h1>منصة تلاوة القرآن الكريم</h1>
+            <p>استمع لتلاوات أشهر القراء بدون تسجيل دخول</p>
+        </header>
+    </div>
+    <nav>
+        <a href="#reciters">المشايخ</a>
+        <a href="#about">عن الصفحة</a>
+        <a href="#contact">تواصل</a>
+    </nav>
+    <div class="container" id="reciters">
+        <h2 style="text-align:center;">اختر القارئ للاستماع</h2>
+        <div class="reciter">
+            <span class="reciter-name">الشيخ محمد صديق المنشاوي</span>
+            <button class="enter-btn" onclick="window.location.href='منشاوى.html'">دخول</button>
+        </div>
+        <div class="reciter">
+            <span class="reciter-name">الشيخ عبد الباسط عبد الصمد</span>
+            <button class="enter-btn" onclick="window.location.href='عبد الباسط.html'">دخول</button>
+        </div>
+        <div class="reciter">
+            <span class="reciter-name">الشيخ محمود خليل الحصري</span>
+            <button class="enter-btn" onclick="window.location.href='الشيخ محمود خليل.html'">دخول</button>
+        </div>
+        <div class="reciter">
+            <span class="reciter-name">الشيخ مصطفى إسماعيل</span>
+            <button class="enter-btn" onclick="window.location.href='مصطفى.html'">دخول</button>
+        </div>
+    </div>
+    <div class="container" id="about">
+        <h2>عن الصفحة</h2>
+        <p align="center">صفحة لنشر تلاوات القرآن الكريم بصوت كبار القراء، استمع مباشرة بدون أي تسجيل دخول.</p>
+        <p align="center">الصفحة تهدف لتسهيل الوصول لتلاوات القرآن الكريم بأصوات المشايخ المشهورين.</p>
+        <p align="center">يمكنك الاستماع لأي سورة من خلال اختيار القارئ المناسب.</p>
+        <p align="center">الصفحة متوافقة مع جميع الأجهزة وتعمل بشكل سريع وسهل.</p>
+        <p align="center">إذا كان لديك أي اقتراحات أو ملاحظات، لا تتردد في التواصل معنا.</p>
+        <P align="center">جزاكم الله خيراً على دعمكم ومشاركتكم في نشر القرآن الكريم.</P>
+        <p align="center">نسأل الله أن يجعل هذا العمل خالصاً لوجهه الكريم وأن ينفع به الجميع.</p>
+        <p align="center" style="color:#e84118; font-weight:bold; font-size:1.15em; background: #fffbe6; border-radius: 7px; padding: 7px 0; margin: 10px 0;">
+            لا تنسَ الصلاة على النبي محمد ﷺ في كل وقت وحين.
+        </p>
+    </div>
+    <div class="container" id="contact">
+        <h2>تواصل معنا</h2>
+        <p align="center">للاقتراحات أو الإبلاغ عن مشكلة، تواصل عبر <a href="https://wa.me/201272179381" target="_blank" style="color:#0097e6;">واتساب</a></p>
+    </div>
+    <footer>
+        جميع الحقوق محفوظة &copy; منصة تلاوة القرآن 2026 &mdash; بواسطة (MAG)
+    </footer>
+    <!-- لافتة غزة -->
+    <div class="gaza-banner">
+        <span>لا تنسوا غزة </span>
+    </div>
+    <script>
+        function openReciter(reciter) {
+            // يمكنك ربط كل شيخ بصفحة أو مشغل صوت خاص به
+            if(reciter === 'minshawi') {
+                window.location.href = 'minshawi.html';
+            } else if(reciter === 'basit') {
+                window.location.href = 'basit.html';
+            } else if(reciter === 'hosary') {
+                window.location.href = 'hosary.html';
+            } else if(reciter === 'ismail') {
+                window.location.href = 'ismail.html';
+            }
+        }
+        // إظهار رسالة الصلاة على النبي عند الدخول
+        function closeSalatModal() {
+            document.getElementById('salatModal').style.display = 'none';
+        }
+        window.onload = function() {
+            document.getElementById('salatModal').style.display = 'flex';
+        }
+    </script>
+</body>
+</html>

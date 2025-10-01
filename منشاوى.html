@@ -1,0 +1,1830 @@
+<!-- مثال لصفحة الشيخ محمد صديق المنشاوي -->
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="utf-8">
+    <title>الشيخ محمد صديق المنشاوي - جميع السور</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Cairo', Arial, sans-serif;
+            background: linear-gradient(120deg, #148b4e 0%, #eafaf1 100%);
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            padding: 30px;
+        }
+        .header-row {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-bottom: 25px;
+        }
+        .reciter-name {
+            font-size: 1.5em;
+            color: #192a56;
+            font-weight: bold;
+        }
+        .listen-all-btn {
+            background: linear-gradient(90deg, #148b4e 0%, #0097e6 100%);
+            color: #fff;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            margin-right: 15px;
+            transition: background 0.4s, transform 0.2s;
+        }
+        .listen-all-btn:hover {
+            background: linear-gradient(90deg, #0097e6 0%, #44bd32 100%);
+            transform: scale(1.04);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            padding: 10px 8px;
+            text-align: center;
+        }
+        th {
+            background: #eafaf1;
+            color: #148b4e;
+        }
+        tr:nth-child(even) {
+            background: #f7f7f7;
+        }
+        .download-btn {
+            background: #0097e6;
+            color: #fff;
+            border: none;
+            padding: 7px 18px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.95em;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .download-btn:hover {
+            background: #44bd32;
+        }
+        .listen-btn {
+            background: #44bd32;
+            color: #fff;
+            border: none;
+            padding: 7px 18px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.95em;
+            font-weight: bold;
+            margin-right: 2px;
+            transition: background 0.3s;
+        }
+        .listen-btn:hover {
+            background: #0097e6;
+        }
+    </style>
+</head>
+<body>
+    <!-- أضف هذا الكود قبل <div class="container"> مباشرة لجعل القائمة الجانبية صغيرة وأنيقة -->
+<div id="side-menu" style="position:fixed; top:60px; right:10px; width:130px; max-height:70vh; overflow-y:auto; background:#fff; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.10); padding:8px 4px; z-index:1000;">
+    <div style="font-weight:bold; color:#148b4e; margin-bottom:8px; text-align:center; font-size:1em;">السور</div>
+    <ul id="surah-list" style="list-style:none; padding:0; margin:0;">
+        <!-- سيتم ملء القائمة تلقائياً بالسكريبت -->
+    </ul>
+</div>
+    <div class="container">
+        <div class="header-row">
+            <span class="reciter-name">الشيخ محمد صديق المنشاوي</span>
+        
+          </div>
+        <!-- أضف هذا النص والزر بعد <div class="header-row"> مباشرة وقبل الجدول -->
+<p style="text-align:center; margin-top:20px; font-weight:bold; color:#148b4e;">
+    يمكنك استخدام شريط التغيير في الأسفل للتنقل السريع بين السور.
+</p>
+<div style="text-align:center; margin-bottom:18px;">
+    <button onclick="window.scrollTo({top: document.getElementById('audio-controls').offsetTop, behavior: 'smooth'});" style="padding:10px 28px; border-radius:20px; background:#0097e6; color:#fff; border:none; font-size:1em; font-weight:bold; cursor:pointer;">
+        الانتقال إلى شريط التحكم
+    </button>
+</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>الترتيب</th>
+                    <th>اسم السورة</th>
+                    <th>من 114</th>
+                    <th>تحميل</th>
+                    <th>استمع</th>
+                </tr>
+            </thead>
+      <tr>
+        <td>1</td>
+        <td>الفاتحة</td>
+        <td>1 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/001.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(0)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>2</td>
+        <td>البقرة</td>
+        <td>2 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/002.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(1)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>3</td>
+        <td>آل عمران</td>
+        <td>3 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/003.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(2)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>4</td>
+        <td>النساء</td>
+        <td>4 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/004.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(3)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>5</td>
+        <td>المائدة</td>
+        <td>5 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/005.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(4)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>6</td>
+        <td>الأنعام</td>
+        <td>6 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/006.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(5)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>7</td>
+        <td>الأعراف</td>
+        <td>7 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/007.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(6)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>8</td>
+        <td>الأنفال</td>
+        <td>8 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/008.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(7)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>9</td>
+        <td>التوبة</td>
+        <td>9 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/009.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(8)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>10</td>
+        <td>يونس</td>
+        <td>10 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/010.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(9)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>11</td>
+        <td>هود</td>
+        <td>11 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/011.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(10)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>12</td>
+        <td>يوسف</td>
+        <td>12 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/012.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(11)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>13</td>
+        <td>الرعد</td>
+        <td>13 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/013.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(12)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>14</td>
+        <td>إبراهيم</td>
+        <td>14 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/014.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(13)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>15</td>
+        <td>الحجر</td>
+        <td>15 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/015.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(14)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>16</td>
+        <td>النحل</td>
+        <td>16 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/016.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(15)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>17</td>
+        <td>الإسراء</td>
+        <td>17 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/017.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(16)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>18</td>
+        <td>الكهف</td>
+        <td>18 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/018.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(17)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>19</td>
+        <td>مريم</td>
+        <td>19 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/019.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(18)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>20</td>
+        <td>طه</td>
+        <td>20 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/020.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(19)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>21</td>
+        <td>الأنبياء</td>
+        <td>21 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/021.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(20)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>22</td>
+        <td>الحج</td>
+        <td>22 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/022.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(21)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>23</td>
+        <td>المؤمنون</td>
+        <td>23 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/023.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(22)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>24</td>
+        <td>النور</td>
+        <td>24 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/024.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(23)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>25</td>
+        <td>الفرقان</td>
+        <td>25 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/025.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(24)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>26</td>
+        <td>الشعراء</td>
+        <td>26 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/026.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(25)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>27</td>
+        <td>النمل</td>
+        <td>27 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/027.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(26)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>28</td>
+        <td>القصص</td>
+        <td>28 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/028.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(27)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>29</td>
+        <td>العنكبوت</td>
+        <td>29 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/029.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(28)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>30</td>
+        <td>الروم</td>
+        <td>30 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/030.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(29)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>31</td>
+        <td>لقمان</td>
+        <td>31 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/031.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(30)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>32</td>
+        <td>السجدة</td>
+        <td>32 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/032.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(31)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>33</td>
+        <td>الأحزاب</td>
+        <td>33 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/033.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(32)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>34</td>
+        <td>سبأ</td>
+        <td>34 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/034.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(33)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>35</td>
+        <td>فاطر</td>
+        <td>35 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/035.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(34)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>36</td>
+        <td>يس</td>
+        <td>36 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/036.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(35)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>37</td>
+        <td>الصافات</td>
+        <td>37 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/037.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(36)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>38</td>
+        <td>ص</td>
+        <td>38 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/038.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(37)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>39</td>
+        <td>الزمر</td>
+        <td>39 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/039.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(38)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>40</td>
+        <td>غافر</td>
+        <td>40 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/040.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(39)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>41</td>
+        <td>فصلت</td>
+        <td>41 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/041.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(40)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>42</td>
+        <td>الشورى</td>
+        <td>42 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/042.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(41)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>43</td>
+        <td>الزخرف</td>
+        <td>43 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/043.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(42)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>44</td>
+        <td>الدخان</td>
+        <td>44 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/044.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(43)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>45</td>
+        <td>الجاثية</td>
+        <td>45 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/045.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(44)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>46</td>
+        <td>الأحقاف</td>
+        <td>46 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/046.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(45)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>47</td>
+        <td>محمد</td>
+        <td>47 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/047.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(46)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>48</td>
+        <td>الفتح</td>
+        <td>48 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/048.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(47)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>49</td>
+        <td>الحجرات</td>
+        <td>49 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/049.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(48)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>50</td>
+        <td>ق</td>
+        <td>50 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/050.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(49)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>51</td>
+        <td>الذاريات</td>
+        <td>51 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/051.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(50)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>52</td>
+        <td>الطور</td>
+        <td>52 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/052.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(51)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>53</td>
+        <td>النجم</td>
+        <td>53 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/053.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(52)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>54</td>
+        <td>القمر</td>
+        <td>54 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/054.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(53)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>55</td>
+        <td>الرحمن</td>
+        <td>55 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/055.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(54)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>56</td>
+        <td>الواقعة</td>
+        <td>56 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/056.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(55)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>57</td>
+        <td>الحديد</td>
+        <td>57 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/057.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(56)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>58</td>
+        <td>المجادلة</td>
+        <td>58 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/058.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(57)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>59</td>
+        <td>الحشر</td>
+        <td>59 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/059.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(58)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>60</td>
+        <td>الممتحنة</td>
+        <td>60 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/060.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(59)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>61</td>
+        <td>الصف</td>
+        <td>61 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/061.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(60)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>62</td>
+        <td>الجمعة</td>
+        <td>62 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/062.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(61)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>63</td>
+        <td>المنافقون</td>
+        <td>63 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/063.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(62)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>64</td>
+        <td>التغابن</td>
+        <td>64 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/064.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(63)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>65</td>
+        <td>الطلاق</td>
+        <td>65 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/065.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(64)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>66</td>
+        <td>التحريم</td>
+        <td>66 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/066.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(65)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>67</td>
+        <td>الملك</td>
+        <td>67 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/067.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(66)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>68</td>
+        <td>القلم</td>
+        <td>68 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/068.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(67)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>69</td>
+        <td>الحاقة</td>
+        <td>69 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/069.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(68)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>70</td>
+        <td>المعارج</td>
+        <td>70 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/070.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(69)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>71</td>
+        <td>نوح</td>
+        <td>71 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/071.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(70)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>72</td>
+        <td>الجن</td>
+        <td>72 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/072.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(71)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>73</td>
+        <td>المزمل</td>
+        <td>73 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/073.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(72)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>74</td>
+        <td>المدثر</td>
+        <td>74 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/074.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(73)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>75</td>
+        <td>القيامة</td>
+        <td>75 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/075.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(74)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>76</td>
+        <td>الإنسان</td>
+        <td>76 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/076.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(75)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>77</td>
+        <td>المرسلات</td>
+        <td>77 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/077.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(76)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>78</td>
+        <td>النبأ</td>
+        <td>78 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/078.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(77)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>79</td>
+        <td>النازعات</td>
+        <td>79 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/079.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(78)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>80</td>
+        <td>عبس</td>
+        <td>80 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/080.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(79)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>81</td>
+        <td>التكوير</td>
+        <td>81 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/081.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(80)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>82</td>
+        <td>الإنفطار</td>
+        <td>82 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/082.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(81)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>83</td>
+        <td>المطففين</td>
+        <td>83 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/083.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(82)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>84</td>
+        <td>الإنشقاق</td>
+        <td>84 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/084.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(83)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>85</td>
+        <td>البروج</td>
+        <td>85 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/085.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(84)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>86</td>
+        <td>الطارق</td>
+        <td>86 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/086.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(85)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>87</td>
+        <td>الأعلى</td>
+        <td>87 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/087.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(86)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>88</td>
+        <td>الغاشية</td>
+        <td>88 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/088.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(87)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>89</td>
+        <td>الفجر</td>
+        <td>89 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/089.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(88)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>90</td>
+        <td>البلد</td>
+        <td>90 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/090.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(89)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>91</td>
+        <td>الشمس</td>
+        <td>91 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/091.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(90)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>92</td>
+        <td>الليل</td>
+        <td>92 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/092.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(91)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>93</td>
+        <td>الضحى</td>
+        <td>93 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/093.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(92)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>94</td>
+        <td>الشرح</td>
+        <td>94 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/094.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(93)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>95</td>
+        <td>التين</td>
+        <td>95 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/095.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(94)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>96</td>
+        <td>العلق</td>
+        <td>96 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/096.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(95)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>97</td>
+        <td>القدر</td>
+        <td>97 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/097.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(96)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>98</td>
+        <td>البينة</td>
+        <td>98 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/098.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(97)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>99</td>
+        <td>الزلزلة</td>
+        <td>99 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/099.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(98)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>100</td>
+        <td>العاديات</td>
+        <td>100 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/100.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(99)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>101</td>
+        <td>القارعة</td>
+        <td>101 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/101.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(100)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>102</td>
+        <td>التكاثر</td>
+        <td>102 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/102.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(101)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>103</td>
+        <td>العصر</td>
+        <td>103 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/103.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(102)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>104</td>
+        <td>الهمزة</td>
+        <td>104 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/104.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(103)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>105</td>
+        <td>الفيل</td>
+        <td>105 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/105.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(104)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>106</td>
+        <td>قريش</td>
+        <td>106 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/106.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(105)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>107</td>
+        <td>الماعون</td>
+        <td>107 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/107.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(106)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>108</td>
+        <td>الكوثر</td>
+        <td>108 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/108.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(107)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>109</td>
+        <td>الكافرون</td>
+        <td>109 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/109.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(108)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>110</td>
+        <td>النصر</td>
+        <td>110 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/110.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(109)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>111</td>
+        <td>المسد</td>
+        <td>111 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/111.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(110)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>112</td>
+        <td>الإخلاص</td>
+        <td>112 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/112.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(111)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>113</td>
+        <td>الفلق</td>
+        <td>113 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/113.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(112)">استماع مباشر</button>
+        </td>
+    </tr>
+    
+
+    <tr>
+        <td>114</td>
+        <td>الناس</td>
+        <td>114 من 114</td>
+        <td>
+            <a class="download-btn" href="https://server10.mp3quran.net/minsh/114.mp3" download>تحميل</a>
+        </td>
+        <td>
+            <button class="listen-btn" onclick="playSurah(113)">استماع مباشر</button>
+        </td>
+    </tr>
+    <tbody>
+    
+</table>
+        </table>
+        <!-- شريط تنقل بين السور -->
+        <div id="audio-controls" style="margin: 30px auto 0; text-align: center;">
+            <button id="prevBtn" style="padding:8px 18px; border-radius:18px; background:#0097e6; color:#fff; border:none; font-weight:bold; font-size:1em; margin:0 8px; cursor:pointer;">السورة السابقة</button>
+            <button id="playPauseBtn" style="padding:8px 18px; border-radius:18px; background:#44bd32; color:#fff; border:none; font-weight:bold; font-size:1em; margin:0 8px; cursor:pointer;">تشغيل</button>
+            <button id="nextBtn" style="padding:8px 18px; border-radius:18px; background:#0097e6; color:#fff; border:none; font-weight:bold; font-size:1em; margin:0 8px; cursor:pointer;">السورة التالية</button>
+            <div style="margin-top:12px;">
+                <span id="currentSurah" style="font-weight:bold; color:#148b4e;"></span>
+            </div>
+            <audio id="mainAudio" style="margin-top:15px; width:90%;" controls>
+                <source id="audioSource" src="surah001.mp3" type="audio/mpeg">
+                متصفحك لا يدعم تشغيل الصوت.
+            </audio>
+        </div>
+        <script>
+            // قائمة بأسماء ملفات السور (يجب أن تكون الملفات موجودة بنفس الترتيب)
+            const surahs = [
+                {name: "الفاتحة", file: "https://server10.mp3quran.net/minsh/001.mp3"},
+                {name: "البقرة", file: "https://server10.mp3quran.net/minsh/002.mp3"},
+                {name: "آل عمران", file: "https://server10.mp3quran.net/minsh/003.mp3"},
+                {name: "النساء", file: "https://server10.mp3quran.net/minsh/004.mp3"},
+                {name: "المائدة", file: "https://server10.mp3quran.net/minsh/005.mp3"},
+                {name: "الأنعام", file: "https://server10.mp3quran.net/minsh/006.mp3"},
+                {name: "الأعراف", file: "https://server10.mp3quran.net/minsh/007.mp3"},
+                {name: "الأنفال", file: "https://server10.mp3quran.net/minsh/008.mp3"},
+                {name: "التوبة", file: "https://server10.mp3quran.net/minsh/009.mp3"},
+                {name: "يونس", file: "https://server10.mp3quran.net/minsh/010.mp3"},
+                {name: "هود", file: "https://server10.mp3quran.net/minsh/011.mp3"},
+                {name: "يوسف", file: "https://server10.mp3quran.net/minsh/012.mp3"},
+                {name: "الرعد", file: "https://server10.mp3quran.net/minsh/013.mp3"},
+                {name: "إبراهيم", file: "https://server10.mp3quran.net/minsh/014.mp3"},
+                {name: "الحجر", file: "https://server10.mp3quran.net/minsh/015.mp3"},
+                {name: "النحل", file: "https://server10.mp3quran.net/minsh/016.mp3"},
+                {name: "الإسراء", file: "https://server10.mp3quran.net/minsh/017.mp3"},
+                {name: "الكهف", file: "https://server10.mp3quran.net/minsh/018.mp3"},
+                {name: "مريم", file: "https://server10.mp3quran.net/minsh/019.mp3"},
+                {name: "طه", file: "https://server10.mp3quran.net/minsh/020.mp3"},
+                {name: "الأنبياء", file: "https://server10.mp3quran.net/minsh/021.mp3"},
+                {name: "الحج", file: "https://server10.mp3quran.net/minsh/022.mp3"},
+                {name: "المؤمنون", file: "https://server10.mp3quran.net/minsh/023.mp3"},
+                {name: "النور", file: "https://server10.mp3quran.net/minsh/024.mp3"},
+                {name: "الفرقان", file: "https://server10.mp3quran.net/minsh/025.mp3"},
+                {name: "الشعراء", file: "https://server10.mp3quran.net/minsh/026.mp3"},
+                {name: "النمل", file: "https://server10.mp3quran.net/minsh/027.mp3"},
+                {name: "القصص", file: "https://server10.mp3quran.net/minsh/028.mp3"},
+                {name: "العنكبوت", file: "https://server10.mp3quran.net/minsh/029.mp3"},
+                {name: "الروم", file: "https://server10.mp3quran.net/minsh/030.mp3"},
+                {name: "لقمان", file: "https://server10.mp3quran.net/minsh/031.mp3"},
+                {name: "السجدة", file: "https://server10.mp3quran.net/minsh/032.mp3"},
+                {name: "الأحزاب", file: "https://server10.mp3quran.net/minsh/033.mp3"},
+                {name: "سبأ", file: "https://server10.mp3quran.net/minsh/034.mp3"},
+                {name: "فاطر", file: "https://server10.mp3quran.net/minsh/035.mp3"},
+                {name: "يس", file: "https://server10.mp3quran.net/minsh/036.mp3"},
+
+                {name: "الصافات", file: "https://server10.mp3quran.net/minsh/037.mp3"},
+                {name: "ص", file: "https://server10.mp3quran.net/minsh/038.mp3"},
+                {name: "الزمر", file: "https://server10.mp3quran.net/minsh/039.mp3"},
+                {name: "غافر", file: "https://server10.mp3quran.net/minsh/040.mp3"},
+                {name: "فصلت", file: "https://server10.mp3quran.net/minsh/041.mp3"},
+                {name: "الشورى", file: "https://server10.mp3quran.net/minsh/042.mp3"},
+                {name: "الزخرف", file: "https://server10.mp3quran.net/minsh/043.mp3"},
+                {name: "الدخان", file: "https://server10.mp3quran.net/minsh/044.mp3"},
+                {name: "الجاثية", file: "https://server10.mp3quran.net/minsh/045.mp3"},
+                {name: "الأحقاف", file: "https://server10.mp3quran.net/minsh/046.mp3"},
+                {name: "محمد", file: "https://server10.mp3quran.net/minsh/047.mp3"},
+                {name: "الفتح", file: "https://server10.mp3quran.net/minsh/048.mp3"},
+                {name: "الحجرات", file: "https://server10.mp3quran.net/minsh/049.mp3"},
+                {name: "ق", file: "https://server10.mp3quran.net/minsh/050.mp3"},
+                {name: "الذاريات", file: "https://server10.mp3quran.net/minsh/051.mp3"},
+                {name: "الطور", file: "https://server10.mp3quran.net/minsh/052.mp3"},
+                {name: "النجم", file: "https://server10.mp3quran.net/minsh/053.mp3"},
+                {name: "القمر", file: "https://server10.mp3quran.net/minsh/054.mp3"},
+                {name: "الرحمن", file: "https://server10.mp3quran.net/minsh/055.mp3"},
+                {name: "الواقعة", file: "https://server10.mp3quran.net/minsh/056.mp3"},
+                {name: "الحديد", file: "https://server10.mp3quran.net/minsh/057.mp3"},
+                {name: "المجادلة", file: "https://server10.mp3quran.net/minsh/058.mp3"},
+                {name: "الحشر", file: "https://server10.mp3quran.net/minsh/059.mp3"},
+                {name: "الممتحنة", file: "https://server10.mp3quran.net/minsh/060.mp3"},
+                {name: "الصف", file: "https://server10.mp3quran.net/minsh/061.mp3"},
+                {name: "الجمعة", file: "https://server10.mp3quran.net/minsh/062.mp3"},
+                {name: "المنافقون", file: "https://server10.mp3quran.net/minsh/063.mp3"},
+                {name: "التغابن", file: "https://server10.mp3quran.net/minsh/064.mp3"},
+                {name: "الطلاق", file: "https://server10.mp3quran.net/minsh/065.mp3"},
+                {name: "التحريم", file: "https://server10.mp3quran.net/minsh/066.mp3"},
+                {name: "الملك", file: "https://server10.mp3quran.net/minsh/067.mp3"},
+                {name: "القلم", file: "https://server10.mp3quran.net/minsh/068.mp3"},
+                {name: "الحاقة", file: "https://server10.mp3quran.net/minsh/069.mp3"},
+                {name: "المعارج", file: "https://server10.mp3quran.net/minsh/070.mp3"},
+                {name: "نوح", file: "https://server10.mp3quran.net/minsh/071.mp3"},
+                {name: "الجن", file: "https://server10.mp3quran.net/minsh/072.mp3"},
+                {name: "المزمل", file: "https://server10.mp3quran.net/minsh/073.mp3"},
+                {name: "المدثر", file: "https://server10.mp3quran.net/minsh/074.mp3"},
+                {name: "القيامة", file: "https://server10.mp3quran.net/minsh/075.mp3"},
+                {name: "الإنسان", file: "https://server10.mp3quran.net/minsh/076.mp3"},
+                {name: "المرسلات", file: "https://server10.mp3quran.net/minsh/077.mp3"},
+                {name: "النبأ", file: "https://server10.mp3quran.net/minsh/078.mp3"},
+                {name: "النازعات", file: "https://server10.mp3quran.net/minsh/079.mp3"},
+                {name: "عبس", file: "https://server10.mp3quran.net/minsh/080.mp3"},
+                {name: "التكوير", file: "https://server10.mp3quran.net/minsh/081.mp3"},
+                {name: "الانفطار", file: "https://server10.mp3quran.net/minsh/082.mp3"},
+                {name: "المطففين", file: "https://server10.mp3quran.net/minsh/083.mp3"},
+                {name: "الانشقاق", file: "https://server10.mp3quran.net/minsh/084.mp3"},
+                {name: "البروج", file: "https://server10.mp3quran.net/minsh/085.mp3"},
+                {name: "الطارق", file: "https://server10.mp3quran.net/minsh/086.mp3"},
+                {name: "الأعلى", file: "https://server10.mp3quran.net/minsh/087.mp3"},
+                {name: "الغاشية", file: "https://server10.mp3quran.net/minsh/088.mp3"},
+                {name: "الفجر", file: "https://server10.mp3quran.net/minsh/089.mp3"},
+                {name: "البلد", file: "https://server10.mp3quran.net/minsh/090.mp3"},
+                {name: "الشمس", file: "https://server10.mp3quran.net/minsh/091.mp3"},
+                {name: "الليل", file: "https://server10.mp3quran.net/minsh/092.mp3"},
+                {name: "الضحى", file: "https://server10.mp3quran.net/minsh/093.mp3"},
+                {name: "الشرح", file: "https://server10.mp3quran.net/minsh/094.mp3"},
+                {name: "التين", file: "https://server10.mp3quran.net/minsh/095.mp3"},
+                {name: "العلق", file: "https://server10.mp3quran.net/minsh/096.mp3"},
+                {name: "القدر", file: "https://server10.mp3quran.net/minsh/097.mp3"},
+                {name: "البينة", file: "https://server10.mp3quran.net/minsh/098.mp3"},
+                {name: "الزلزلة", file: "https://server10.mp3quran.net/minsh/099.mp3"},
+                {name: "العاديات", file: "https://server10.mp3quran.net/minsh/100.mp3"},
+                {name: "القارعة", file: "https://server10.mp3quran.net/minsh/101.mp3"},
+                {name: "التكاثر", file: "https://server10.mp3quran.net/minsh/102.mp3"},
+                {name: "العصر", file: "https://server10.mp3quran.net/minsh/103.mp3"},
+                {name: "الهُمَزَة", file: "https://server10.mp3quran.net/minsh/104.mp3"},
+                {name: "الفيل", file: "https://server10.mp3quran.net/minsh/105.mp3"},
+                {name: "قريش", file: "https://server10.mp3quran.net/minsh/106.mp3"},
+                {name: "الماعون", file: "https://server10.mp3quran.net/minsh/107.mp3"},
+                {name: "الكوثر", file: "https://server10.mp3quran.net/minsh/108.mp3"},
+                {name: "الكافرون", file: "https://server10.mp3quran.net/minsh/109.mp3"},
+                {name: "النصر", file: "https://server10.mp3quran.net/minsh/110.mp3"},
+                {name: "المسد", file: "https://server10.mp3quran.net/minsh/111.mp3"},
+                {name: "الإخلاص", file: "https://server10.mp3quran.net/minsh/112.mp3"},
+                {name: "الفلق", file: "https://server10.mp3quran.net/minsh/113.mp3"},
+                {name: "الناس", file: "https://server10.mp3quran.net/minsh/114.mp3"}
+            ];
+            let current = 0;
+            const audio = document.getElementById('mainAudio');
+            const audioSource = document.getElementById('audioSource');
+            const currentSurah = document.getElementById('currentSurah');
+            const playPauseBtn = document.getElementById('playPauseBtn');
+            function loadSurah(idx) {
+                if(idx < 0) idx = 0;
+                if(idx >= surahs.length) idx = surahs.length-1;
+                audioSource.src = surahs[idx].file;
+                audio.load();
+                currentSurah.textContent = "السورة الحالية: " + surahs[idx].name;
+                playPauseBtn.textContent = "تشغيل";
+            }
+            document.getElementById('prevBtn').onclick = function() {
+                if(current > 0) {
+                    current--;
+                    loadSurah(current);
+                }
+            };
+            document.getElementById('nextBtn').onclick = function() {
+                if(current < surahs.length-1) {
+                    current++;
+                    loadSurah(current);
+                }
+            };
+            playPauseBtn.onclick = function() {
+                if(audio.paused) {
+                    audio.play();
+                    playPauseBtn.textContent = "إيقاف";
+                } else {
+                    audio.pause();
+                    playPauseBtn.textContent = "تشغيل";
+                }
+            };
+            audio.onended = function() {
+                playPauseBtn.textContent = "تشغيل";
+            };
+            // تحميل أول سورة عند فتح الصفحة
+            loadSurah(current);
+
+            // أضف هذا الكود داخل <script> بعد تعريف مصفوفة surahs
+const surahList = document.getElementById('surah-list');
+surahs.forEach((s, i) => {
+    const li = document.createElement('li');
+    li.style.marginBottom = '3px';
+    const a = document.createElement('a');
+    a.textContent = (i+1) + " " + s.name;
+    a.href = "javascript:void(0)";
+    a.style.color = "#0097e6";
+    a.style.textDecoration = "none";
+    a.style.fontWeight = "normal";
+    a.style.fontSize = "0.95em";
+    a.style.display = "block";
+    a.style.padding = "2px 0";
+    a.onclick = function() {
+        playSurah(i);
+        window.scrollTo({top: document.getElementById('audio-controls').offsetTop, behavior: 'smooth'});
+    };
+    li.appendChild(a);
+    surahList.appendChild(li);
+});
+function playSurah(idx) {
+    current = idx;
+    loadSurah(current);
+    audio.play();
+    playPauseBtn.textContent = "إيقاف";
+}
+
+    // ...existing code...
+audio.onended = function() {
+    playPauseBtn.textContent = "تشغيل";
+};
+
+// أضف هنا
+function playSurah(idx) {
+    current = idx;
+    loadSurah(current);
+    audio.play();
+    playPauseBtn.textContent = "إيقاف";
+}
+
+// تحميل أول سورة عند فتح الصفحة
+loadSurah(current);    </script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="utf-8">
+    <title>الشيخ مصطفى إسماعيل - جميع السور</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Cairo', Arial, sans-serif;
+            background: linear-gradient(120deg, #148b4e 0%, #eafaf1 100%);
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 700px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            padding: 30px;
+        }
+        .header-row {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-bottom: 25px;
+        }
+        .reciter-name {
+            font-size: 1.5em;
+            color: #192a56;
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            padding: 10px 8px;
+            text-align: center;
+        }
+        th {
+            background: #eafaf1;
+            color: #148b4e;
+        }
+        tr:nth-child(even) {
+            background: #f7f7f7;
+        }
+        .download-btn {
+            background: #0097e6;
+            color: #fff;
+            border: none;
+            padding: 7px 18px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.95em;
+            font-weight: bold;
+            transition: background 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .download-btn:hover {
+            background: #44bd32;
+        }
+        .listen-btn {
+            background: #44bd32;
+            color: #fff;
+            border: none;
+            padding: 7px 18px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.95em;
+            font-weight: bold;
+            margin-right: 2px;
+            transition: background 0.3s;
+        }
+        .listen-btn:hover {
+            background: #0097e6;
+        }
+    </style>
+</head>
+<body>
+<div id="side-menu" style="position:fixed; top:60px; right:10px; width:130px; max-height:70vh; overflow-y:auto; background:#fff; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.10); padding:8px 4px; z-index:1000;">
+    <div style="font-weight:bold; color:#148b4e; margin-bottom:8px; text-align:center; font-size:1em;">السور</div>
+    <ul id="surah-list" style="list-style:none; padding:0; margin:0;"></ul>
+</div>
+<div class="container">
+    <div class="header-row">
+        <span class="reciter-name">الشيخ مصطفى إسماعيل</span>
+    </div>
+    <p style="text-align:center; margin-top:20px; font-weight:bold; color:#148b4e;">
+        يمكنك استخدام شريط التغيير في الأسفل للتنقل السريع بين السور.
+    </p>
+    <div style="text-align:center; margin-bottom:18px;">
+        <button onclick="window.scrollTo({top: document.getElementById('audio-controls').offsetTop, behavior: 'smooth'});" style="padding:10px 28px; border-radius:20px; background:#0097e6; color:#fff; border:none; font-size:1em; font-weight:bold; cursor:pointer;">
+            الانتقال إلى شريط التحكم
+        </button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>الترتيب</th>
+                <th>اسم السورة</th>
+                <th>من 114</th>
+                <th>تحميل</th>
+                <th>استمع</th>
+            </tr>
+        </thead>
+        <tbody id="surah-table-body"> <!-- سيتم ملء الجدول تلقائياً بالسكريبت -->
+            <!-- سيتم ملء الجدول تلقائياً بالسكريبت -->
+        </tbody>
+    </table>
+    <div id="audio-controls" style="margin: 30px auto 0; text-align: center;">
+        <button id="prevBtn" style="padding:8px 18px; border-radius:18px; background:#0097e6; color:#fff; border:none; font-weight:bold; font-size:1em; margin:0 8px; cursor:pointer;">السورة السابقة</button>
+        <button id="playPauseBtn" style="padding:8px 18px; border-radius:18px; background:#44bd32; color:#fff; border:none; font-weight:bold; font-size:1em; margin:0 8px; cursor:pointer;">تشغيل</button>
+        <button id="nextBtn" style="padding:8px 18px; border-radius:18px; background:#0097e6; color:#fff; border:none; font-weight:bold; font-size:1em; margin:0 8px; cursor:pointer;">السورة التالية</button>
+        <div style="margin-top:12px;">
+            <span id="currentSurah" style="font-weight:bold; color:#148b4e;"></span>
+        </div>
+        <audio id="mainAudio" style="margin-top:15px; width:90%;" controls>
+            <source id="audioSource" src="https://server8.mp3quran.net/mustafa/001.mp3" type="audio/mpeg">
+            متصفحك لا يدعم تشغيل الصوت.
+        </audio>
+    </div>
+    <script>
+        // قائمة بأسماء ملفات السور
+        const surahs = [
+            {name: "الفاتحة", file: "https://server8.mp3quran.net/mustafa/001.mp3"},
+            {name: "البقرة", file: "https://server8.mp3quran.net/mustafa/002.mp3"},
+            {name: "آل عمران", file: "https://server8.mp3quran.net/mustafa/003.mp3"},
+            {name: "النساء", file: "https://server8.mp3quran.net/mustafa/004.mp3"},
+            {name: "المائدة", file: "https://server8.mp3quran.net/mustafa/005.mp3"},
+            {name: "الأنعام", file: "https://server8.mp3quran.net/mustafa/006.mp3"},
+            {name: "الأعراف", file: "https://server8.mp3quran.net/mustafa/007.mp3"},
+            {name: "الأنفال", file: "https://server8.mp3quran.net/mustafa/008.mp3"},
+            {name: "التوبة", file: "https://server8.mp3quran.net/mustafa/009.mp3"},
+            {name: "يونس", file: "https://server8.mp3quran.net/mustafa/010.mp3"},
+            {name: "هود", file: "https://server8.mp3quran.net/mustafa/011.mp3"},
+            {name: "يوسف", file: "https://server8.mp3quran.net/mustafa/012.mp3"},
+            {name: "الرعد", file: "https://server8.mp3quran.net/mustafa/013.mp3"},
+            {name: "إبراهيم", file: "https://server8.mp3quran.net/mustafa/014.mp3"},
+            {name: "الحجر", file: "https://server8.mp3quran.net/mustafa/015.mp3"},
+            {name: "النحل", file: "https://server8.mp3quran.net/mustafa/016.mp3"},
+            {name: "الإسراء", file: "https://server8.mp3quran.net/mustafa/017.mp3"},
+            {name: "الكهف", file: "https://server8.mp3quran.net/mustafa/018.mp3"},
+            {name: "مريم", file: "https://server8.mp3quran.net/mustafa/019.mp3"},
+            {name: "طه", file: "https://server8.mp3quran.net/mustafa/020.mp3"},
+            {name: "الأنبياء", file: "https://server8.mp3quran.net/mustafa/021.mp3"},
+            {name: "الحج", file: "https://server8.mp3quran.net/mustafa/022.mp3"},
+            {name: "المؤمنون", file: "https://server8.mp3quran.net/mustafa/023.mp3"},
+            {name: "النور", file: "https://server8.mp3quran.net/mustafa/024.mp3"},
+            {name: "الفرقان", file: "https://server8.mp3quran.net/mustafa/025.mp3"},
+            {name: "الشعراء", file: "https://server8.mp3quran.net/mustafa/026.mp3"},
+            {name: "النمل", file: "https://server8.mp3quran.net/mustafa/027.mp3"},
+            {name: "القصص", file: "https://server8.mp3quran.net/mustafa/028.mp3"},
+            {name: "العنكبوت", file: "https://server8.mp3quran.net/mustafa/029.mp3"},
+            {name: "الروم", file: "https://server8.mp3quran.net/mustafa/030.mp3"},
+            {name: "لقمان", file: "https://server8.mp3quran.net/mustafa/031.mp3"},
+            {name: "السجدة", file: "https://server8.mp3quran.net/mustafa/032.mp3"},
+            {name: "الأحزاب", file: "https://server8.mp3quran.net/mustafa/033.mp3"},
+            {name: "سبأ", file: "https://server8.mp3quran.net/mustafa/034.mp3"},
+            {name: "فاطر", file: "https://server8.mp3quran.net/mustafa/035.mp3"},
+            {name: "يس", file: "https://server8.mp3quran.net/mustafa/036.mp3"},
+            {name: "الصافات", file: "https://server8.mp3quran.net/mustafa/037.mp3"},
+            {name: "ص", file: "https://server8.mp3quran.net/mustafa/038.mp3"},
+            {name: "الزمر", file: "https://server8.mp3quran.net/mustafa/039.mp3"},
+            {name: "غافر", file: "https://server8.mp3quran.net/mustafa/040.mp3"},
+            {name: "فصلت", file: "https://server8.mp3quran.net/mustafa/041.mp3"},
+            {name: "الشورى", file: "https://server8.mp3quran.net/mustafa/042.mp3"},
+            {name: "الزخرف", file: "https://server8.mp3quran.net/mustafa/043.mp3"},
+            {name: "الدخان", file: "https://server8.mp3quran.net/mustafa/044.mp3"},
+            {name: "الجاثية", file: "https://server8.mp3quran.net/mustafa/045.mp3"},
+            {name: "الأحقاف", file: "https://server8.mp3quran.net/mustafa/046.mp3"},
+            {name: "محمد", file: "https://server8.mp3quran.net/mustafa/047.mp3"},
+            {name: "الفتح", file: "https://server8.mp3quran.net/mustafa/048.mp3"},
+            {name: "الحجرات", file: "https://server8.mp3quran.net/mustafa/049.mp3"},
+            {name: "ق", file: "https://server8.mp3quran.net/mustafa/050.mp3"},
+            {name: "الذاريات", file: "https://server8.mp3quran.net/mustafa/051.mp3"},
+            {name: "الطور", file: "https://server8.mp3quran.net/mustafa/052.mp3"},
+            {name: "النجم", file: "https://server8.mp3quran.net/mustafa/053.mp3"},
+            {name: "القمر", file: "https://server8.mp3quran.net/mustafa/054.mp3"},
+            {name: "الرحمن", file: "https://server8.mp3quran.net/mustafa/055.mp3"},
+            {name: "الواقعة", file: "https://server8.mp3quran.net/mustafa/056.mp3"},
+            {name: "الحديد", file: "https://server8.mp3quran.net/mustafa/057.mp3"},
+            {name: "المجادلة", file: "https://server8.mp3quran.net/mustafa/058.mp3"},
+            {name: "الحشر", file: "https://server8.mp3quran.net/mustafa/059.mp3"},
+            {name: "الممتحنة", file: "https://server8.mp3quran.net/mustafa/060.mp3"},
+            {name: "الصف", file: "https://server8.mp3quran.net/mustafa/061.mp3"},
+            {name: "الجمعة", file: "https://server8.mp3quran.net/mustafa/062.mp3"},
+            {name: "المنافقون", file: "https://server8.mp3quran.net/mustafa/063.mp3"},
+            {name: "التغابن", file: "https://server8.mp3quran.net/mustafa/064.mp3"},
+            {name: "الطلاق", file: "https://server8.mp3quran.net/mustafa/065.mp3"},
+            {name: "التحريم", file: "https://server8.mp3quran.net/mustafa/066.mp3"},
+            {name: "الملك", file: "https://server8.mp3quran.net/mustafa/067.mp3"},
+            {name: "القلم", file: "https://server8.mp3quran.net/mustafa/068.mp3"},
+            {name: "الحاقة", file: "https://server8.mp3quran.net/mustafa/069.mp3"},
+            {name: "المعارج", file: "https://server8.mp3quran.net/mustafa/070.mp3"},
+            {name: "نوح", file: "https://server8.mp3quran.net/mustafa/071.mp3"},
+            {name: "الجن", file: "https://server8.mp3quran.net/mustafa/072.mp3"},
+            {name: "المزمل", file: "https://server8.mp3quran.net/mustafa/073.mp3"},
+            {name: "المدثر", file: "https://server8.mp3quran.net/mustafa/074.mp3"},
+            {name: "القيامة", file: "https://server8.mp3quran.net/mustafa/075.mp3"},
+            {name: "الإنسان", file: "https://server8.mp3quran.net/mustafa/076.mp3"},
+            {name: "المرسلات", file: "https://server8.mp3quran.net/mustafa/077.mp3"},
+            {name: "النبأ", file: "https://server8.mp3quran.net/mustafa/078.mp3"},
+            {name: "النازعات", file: "https://server8.mp3quran.net/mustafa/079.mp3"},
+            {name: "عبس", file: "https://server8.mp3quran.net/mustafa/080.mp3"},
+            {name: "التكوير", file: "https://server8.mp3quran.net/mustafa/081.mp3"},
+            {name: "الانفطار", file: "https://server8.mp3quran.net/mustafa/082.mp3"},
+            {name: "المطففين", file: "https://server8.mp3quran.net/mustafa/083.mp3"},
+            {name: "الانشقاق", file: "https://server8.mp3quran.net/mustafa/084.mp3"},
+            {name: "البروج", file: "https://server8.mp3quran.net/mustafa/085.mp3"},
+            {name: "الطارق", file: "https://server8.mp3quran.net/mustafa/086.mp3"},
+            {name: "الأعلى", file: "https://server8.mp3quran.net/mustafa/087.mp3"},
+            {name: "الغاشية", file: "https://server8.mp3quran.net/mustafa/088.mp3"},
+            {name: "الفجر", file: "https://server8.mp3quran.net/mustafa/089.mp3"},
+            {name: "البلد", file: "https://server8.mp3quran.net/mustafa/090.mp3"},
+            {name: "الشمس", file: "https://server8.mp3quran.net/mustafa/091.mp3"},
+            {name: "الليل", file: "https://server8.mp3quran.net/mustafa/092.mp3"},
+            {name: "الضحى", file: "https://server8.mp3quran.net/mustafa/093.mp3"},
+            {name: "الشرح", file: "https://server8.mp3quran.net/mustafa/094.mp3"},
+            {name: "التين", file: "https://server8.mp3quran.net/mustafa/095.mp3"},
+            {name: "العلق", file: "https://server8.mp3quran.net/mustafa/096.mp3"},
+            {name: "القدر", file: "https://server8.mp3quran.net/mustafa/097.mp3"},
+            {name: "البينة", file: "https://server8.mp3quran.net/mustafa/098.mp3"},
+            {name: "الزلزلة", file: "https://server8.mp3quran.net/mustafa/099.mp3"},
+            {name: "العاديات", file: "https://server8.mp3quran.net/mustafa/100.mp3"},
+            {name: "القارعة", file: "https://server8.mp3quran.net/mustafa/101.mp3"},
+            {name: "التكاثر", file: "https://server8.mp3quran.net/mustafa/102.mp3"},
+            {name: "العصر", file: "https://server8.mp3quran.net/mustafa/103.mp3"},
+            {name: "الهُمَزَة", file: "https://server8.mp3quran.net/mustafa/104.mp3"},
+            {name: "الفيل", file: "https://server8.mp3quran.net/mustafa/105.mp3"},
+            {name: "قريش", file: "https://server8.mp3quran.net/mustafa/106.mp3"},
+            {name: "الماعون", file: "https://server8.mp3quran.net/mustafa/107.mp3"},
+            {name: "الكوثر", file: "https://server8.mp3quran.net/mustafa/108.mp3"},
+            {name: "الكافرون", file: "https://server8.mp3quran.net/mustafa/109.mp3"},
+            {name: "النصر", file: "https://server8.mp3quran.net/mustafa/110.mp3"},
+            {name: "المسد", file: "https://server8.mp3quran.net/mustafa/111.mp3"},
+            {name: "الإخلاص", file: "https://server8.mp3quran.net/mustafa/112.mp3"},
+            {name: "الفلق", file: "https://server8.mp3quran.net/mustafa/113.mp3"},
+            {name: "الناس", file: "https://server8.mp3quran.net/mustafa/114.mp3"}
+        ];
+
+        let current = 0;
+        const audio = document.getElementById('mainAudio');
+        const audioSource = document.getElementById('audioSource');
+        const currentSurah = document.getElementById('currentSurah');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const surahTableBody = document.getElementById('surah-table-body');
+
+        // إنشاء جدول السور ديناميكياً
+        surahs.forEach((surah, index) => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${index + 1}</td>
+                <td>${surah.name}</td>
+                <td>${index + 1} من 114</td>
+                <td>
+                    <a class="download-btn" href="${surah.file}" download>تحميل</a>
+                </td>
+                <td>
+                    <button class="listen-btn" onclick="playSurah(${index})">استماع مباشر</button>
+                </td>
+            `;
+            surahTableBody.appendChild(row);
+        });
+
+        function playSurah(idx) {
+            current = idx;
+            loadSurah(current);
+            audio.play();
+            playPauseBtn.textContent = "إيقاف";
+        }
+
+        function loadSurah(idx) {
+            if(idx < 0) idx = 0;
+            if(idx >= surahs.length) idx = surahs.length-1;
+            audioSource.src = surahs[idx].file;
+            audio.load();
+            currentSurah.textContent = "السورة الحالية: " + surahs[idx].name;
+            playPauseBtn.textContent = "تشغيل";
+        }
+
+        document.getElementById('prevBtn').onclick = function() {
+            if(current > 0) {
+                current--;
+                loadSurah(current);
+            }
+        };
+
+        document.getElementById('nextBtn').onclick = function() {
+            if(current < surahs.length-1) {
+                current++;
+                loadSurah(current);
+            }
+        };
+
+        playPauseBtn.onclick = function() {
+            if(audio.paused) {
+                audio.play();
+                playPauseBtn.textContent = "إيقاف";
+            } else {
+                audio.pause();
+                playPauseBtn.textContent = "تشغيل";
+            }
+        };
+
+        audio.onended = function() {
+            playPauseBtn.textContent = "تشغيل";
+        };
+
+        // تحميل أول سورة عند فتح الصفحة
+        loadSurah(current);
+
+        // إنشاء قائمة السور الجانبية
+        const surahList = document.getElementById('surah-list');
+        surahs.forEach((s, i) => {
+            const li = document.createElement('li');
+            li.style.marginBottom = '3px';
+            const a = document.createElement('a');
+            a.textContent = (i+1) + " " + s.name;
+            a.href = "javascript:void(0)";
+            a.style.color = "#0097e6";
+            a.style.textDecoration = "none";
+            a.style.fontWeight = "normal";
+            a.style.fontSize = "0.95em";
+            a.style.display = "block";
+            a.style.padding = "2px 0";
+            a.onclick = function() {
+                playSurah(i);
+                window.scrollTo({top: document.getElementById('audio-controls').offsetTop, behavior: 'smooth'});
+            };
+            li.appendChild(a);
+            surahList.appendChild(li);
+        });
+    </script>
+</div>
+</body>
+</html>
