@@ -1577,7 +1577,23 @@ surahs.forEach((s, i) => {
     surahList.appendChild(li);
 }); 
 
- }
+ // إضافة وظيفة إخفاء/إظهار القائمة وحفظ الحالة
+const toggleBtn = document.getElementById('toggleSideBtn');
+const sideMenu = document.getElementById('side-menu');
+
+function updateToggleButton() {
+    const isHidden = sideMenu.style.display === 'none';
+    toggleBtn.textContent = isHidden ? 'إظهار القائمة' : 'إخفاء القائمة';
+    toggleBtn.setAttribute('aria-expanded', String(!isHidden));
+}
+
+toggleBtn.addEventListener('click', function() {
+    const isHidden = sideMenu.style.display === 'none';
+    if (isHidden) {
+        sideMenu.style.display = '';
+    } else {
+        sideMenu.style.display = 'none';
+    }
     // حفظ الحالة
     try {
         localStorage.setItem('sideMenuHidden', sideMenu.style.display === 'none' ? '1' : '0');
@@ -1592,9 +1608,11 @@ try {
         sideMenu.style.display = 'none';
     }
 } catch (e) { /* تجاهل أخطاء التخزين */ }
-updateToggleButton();           
+updateToggleButton();
+         
         </script>
     </div>
 </body>
 </html>
+
 
