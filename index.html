@@ -185,7 +185,34 @@
         body {
             padding-top: 52px !important; /* حتى لا يغطي البانر الصفحة */
         }
-    </style>
+    
+.reciters-list {
+  max-height: 350px;   /* ارتفاع مناسب */
+  overflow-y: auto;    /* يخلي القائمة سكرول */
+  border: 1px solid #eee;
+  border-radius: 6px;
+  padding-right: 8px;
+  margin-top: 10px;
+}
+
+
+/* Scrollbar Design */
+.reciters-list::-webkit-scrollbar {
+  width: 8px;
+}
+.reciters-list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+.reciters-list::-webkit-scrollbar-thumb {
+  background: #44bd32;
+  border-radius: 10px;
+}
+.reciters-list::-webkit-scrollbar-thumb:hover {
+  background: #009432;
+}
+
+</style>
 </head>
 <body>
     <!-- نافذة الصلاة على النبي -->
@@ -227,6 +254,7 @@
     <!-- هنا تبدأ عناصر المشايخ -->
 
 
+    <div class="reciters-list">
         <div class="reciter">
             <span class="reciter-name">الشيخ محمد صديق المنشاوي</span>
             <button class="enter-btn" onclick="window.location.href='alminshawi.html'">دخول</button>
@@ -247,6 +275,7 @@
             <span class="reciter-name">الشيخ محمد محمود الطبلواى </span>
             <button class="enter-btn" onclick="window.location.href='altabluaa.html'">دخول</button>
         </div>
+    </div> <!-- close .reciters-list -->
     </div>
     <div class="container" id="about">
         <h2>عن الصفحة</h2>
