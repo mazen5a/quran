@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="utf-8">
+    <title>منصة تلاوة القرآن الكريم</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="استمع لتلاوات أشهر القراء بدون تسجيل دخول.">
+    <meta name="keywords" content="قرآن, تلاوة, قراء, محمد صديق المنشاوي, عبد الباسط عبد الصمد, محمود خليل الحصري, مصطفى إسماعيل">
+      <meta name="author" content="mohamed ahmed mohamed ghazly"> <!-- اسم الكاتب -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- نافذة الصلاة على النبي -->
+    <div id="salatModal" class="modal-overlay">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeSalatModal()" title="إغلاق">×</button>
+            <div class="modal-emoji">🕋</div>
+            <div class="modal-title">صَلِّ على محمد ﷺ</div>
+            <div style="color:#273c75;margin-top:8px;">اللهم صل وسلم وبارك على سيدنا محمد</div>
+        </div>
+    </div>
+    <div class="planet-bg">
+        <span class="planet-core">📖</span>
+        <header>
+            <h1>منصة تلاوة القرآن الكريم</h1>
+            <p>استمع لتلاوات أشهر القراء بدون تسجيل دخول</p>
+        </header>
+    </div>
+    <nav>
+        <a href="#reciters">المشايخ</a>
+        <a href="#about">عن الصفحة</a>
+        <a href="#contact">تواصل</a>
+    </nav>
+    <div class="container" id="reciters">
+        <h2 style="text-align:center;">اختر القارئ للاستماع</h2>
+
+<div class="container" id="reciters">
+    <h2>المشايخ</h2>
+
+    <!-- 🔍 مربع البحث -->
+    <div style="text-align:center;margin:12px 0;">
+      <input id="reciterSearch" type="text" placeholder="ابحث عن شيخ (مش لازم الاسم بالظبط)" 
+             style="width:90%; max-width:520px; padding:10px 14px; font-size:1rem; border-radius:8px; border:1px solid #ddd;" />
+      <div id="searchHint" style="color:#666;font-size:0.92rem;margin-top:6px;">
+        اكتب جزء من الاسم أو خطأ إملائي بسيط وسأعرض النتائج.
+      </div>
+    </div>
+
+    <!-- هنا تبدأ عناصر المشايخ -->
+
+
+    <div class="reciters-list">
+        <div class="reciter">
+            <span class="reciter-name">الشيخ محمد صديق المنشاوي</span>
+            <button class="enter-btn" onclick="window.location.href='html/alminshawi.html'">دخول</button>
+        </div>
+        <div class="reciter">
+            <span class="reciter-name">الشيخ عبد الباسط عبد الصمد</span>
+            <button class="enter-btn" onclick="window.location.href='html/eabd-albasit.html'">دخول</button>
+        </div>
+        <div class="reciter">
+            <span class="reciter-name">الشيخ محمود خليل الحصري</span>
+            <button class="enter-btn" onclick="window.location.href='html/mahmoud-khalil.html'">دخول</button>
+        </div>
+        <div class="reciter">
+            <span class="reciter-name">الشيخ مصطفى إسماعيل</span>
+            <button class="enter-btn" onclick="window.location.href='html/mustafaa.html'">دخول</button>
+        </div>
+         <div class="reciter">
+            <span class="reciter-name">الشيخ محمد محمود الطبلواى </span>
+            <button class="enter-btn" onclick="window.location.href='html/altabluaa.html'">دخول</button>
+        </div>
+    </div> <!-- close .reciters-list -->
+    </div>
+    <div class="container" id="about">
+        <h2>عن الصفحة</h2>
+        <p align="center">صفحة لنشر تلاوات القرآن الكريم بصوت كبار القراء، استمع مباشرة بدون أي تسجيل دخول.</p>
+        <p align="center">الصفحة تهدف لتسهيل الوصول لتلاوات القرآن الكريم بأصوات المشايخ المشهورين.</p>
+        <p align="center">يمكنك الاستماع لأي سورة من خلال اختيار القارئ المناسب.</p>
+        <p align="center">الصفحة متوافقة مع جميع الأجهزة وتعمل بشكل سريع وسهل.</p>
+        <p align="center">إذا كان لديك أي اقتراحات أو ملاحظات، لا تتردد في التواصل معنا.</p>
+        <P align="center">جزاكم الله خيراً على دعمكم ومشاركتكم في نشر القرآن الكريم.</P>
+        <p align="center">نسأل الله أن يجعل هذا العمل خالصاً لوجهه الكريم وأن ينفع به الجميع.</p>
+        <p align="center" style="color:#e84118; font-weight:bold; font-size:1.15em; background: #fffbe6; border-radius: 7px; padding: 7px 0; margin: 10px 0;">
+            لا تنسَ الصلاة على النبي محمد ﷺ في كل وقت وحين.
+        </p>
+    </div>
+    <div class="container" id="contact">
+        <h2>تواصل معنا</h2>
+        <p align="center">للاقتراحات أو الإبلاغ عن مشكلة، تواصل عبر <a href="https://wa.me/201272179381" target="_blank" style="color:#0097e6;">واتساب</a></p>
+    </div>
+    <footer>
+        جميع الحقوق محفوظة &copy; منصة تلاوة القرآن 2026 &mdash; بواسطة (MAG)
+    </footer>
+    <!-- لافتة غزة -->
+    <div class="gaza-banner">
+        <span>لا تنسوا غزة </span>
+    </div>
+    <script>
+        function openReciter(reciter) {
+            // يمكنك ربط كل شيخ بصفحة أو مشغل صوت خاص به
+            if(reciter === 'minshawi') {
+                window.location.href = 'minshawi.html';
+            } else if(reciter === 'basit') {
+                window.location.href = 'basit.html';
+            } else if(reciter === 'hosary') {
+                window.location.href = 'hosary.html';
+            } else if(reciter === 'ismail') {
+                window.location.href = 'ismail.html';
+            }
+        }
+        // إظهار رسالة الصلاة على النبي عند الدخول
+        function closeSalatModal() {
+            document.getElementById('salatModal').style.display = 'none';
+        }
+        window.onload = function() {
+            document.getElementById('salatModal').style.display = 'flex';
+        }
+    </script>
+  <script>
+// ---------- تنظيف ونمط النص العربي (normalization) ----------
+function normalizeArabic(str) {
+  if (!str) return "";
+  // تحويل لحروف صغيرة، حذف تشكيل ومسافات زائدة
+  str = str.toLowerCase().trim();
+  // ازالة التشكيل
+  str = str.replace(/[\u064B-\u065F\u0610-\u061A\u06D6-\u06ED]/g, "");
+  // توحيد الأحرف الشائعة
+  str = str.replace(/[آأإا]/g, "ا");
+  str = str.replace(/ؤ/g, "و");
+  str = str.replace(/ئ/g, "ي");
+  str = str.replace(/ة/g, "ه");
+  str = str.replace(/ى/g, "ي");
+  // ازالة حروف غير الحروف والأرقام (نخلي الحروف العربية واللاتينية والأرقام فقط)
+  str = str.replace(/[^0-9\u0621-\u064A a-z]/g, "");
+  // ازالة مسافات داخلية لتسهيل المقارنة (اختياري)
+  str = str.replace(/\s+/g, "");
+  return str;
+}
+
+// ---------- دالة ليفنشتاين (اختياري لاستخدام التشابه) ----------
+function levenshtein(a, b) {
+  if (!a || !b) return (a||"").length + (b||"").length;
+  const m = a.length, n = b.length;
+  const dp = Array.from({length: m+1}, () => new Array(n+1).fill(0));
+  for (let i=0;i<=m;i++) dp[i][0] = i;
+  for (let j=0;j<=n;j++) dp[0][j] = j;
+  for (let i=1;i<=m;i++){
+    for (let j=1;j<=n;j++){
+      const cost = a[i-1] === b[j-1] ? 0 : 1;
+      dp[i][j] = Math.min(dp[i-1][j] + 1, dp[i][j-1] + 1, dp[i-1][j-1] + cost);
+    }
+  }
+  return dp[m][n];
+}
+
+// ---------- البحث وعرض النتائج ----------
+document.addEventListener("DOMContentLoaded", function(){
+  const input = document.getElementById("reciterSearch");
+  // تحديد عناصر "الشيخ" في صفحتك - نقوم بالبحث داخل عناصر تحمل الصنف .reciter .reciter-name
+  const reciters = Array.from(document.querySelectorAll(".reciter"));
+  // نصوص التطبيع المحفوظة لكل شيخ لتسريع البحث
+  const reciterData = reciters.map(el => {
+    const nameEl = el.querySelector(".reciter-name");
+    const name = nameEl ? nameEl.textContent.trim() : "";
+    return { el, name, norm: normalizeArabic(name) };
+  });
+
+  input.addEventListener("input", function(){
+    const q = normalizeArabic(this.value);
+    if (!q) {
+      // لو البحث فاضي: عرض الكل
+      reciterData.forEach(r => r.el.style.display = "");
+      return;
+    }
+    // لو عايز استخدام فقط الـ includes السريع:
+    reciterData.forEach(r => {
+      // تطابق احتوائي
+      if (r.norm.includes(q)) {
+        r.el.style.display = "";
+      } else {
+        // فشل الاحتواء، نجرب ليفنشتاين للمطابقة التقريبية
+        const dist = levenshtein(r.norm, q);
+        // عتبة يمكن تعديلها: 1 أو 2 مناسب للأخطاء الصغيرة
+        const threshold = Math.max(1, Math.floor(r.norm.length * 0.25)); // ديناميكي
+        if (dist <= threshold) r.el.style.display = "";
+        else r.el.style.display = "none";
+      }
+    });
+  });
+
+  // اختياري: بحث عند الضغط Enter يركز أول نتيجة
+  input.addEventListener("keydown", function(e){
+    if (e.key === "Enter") {
+      const visible = reciterData.find(r => r.el.style.display !== "none");
+      if (visible) {
+        const btn = visible.el.querySelector(".enter-btn");
+        if (btn) btn.focus();
+      }
+    }
+  });
+});
+</script>
+
+
+</body>
+
+</html>
+
