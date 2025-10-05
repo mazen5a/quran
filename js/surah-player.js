@@ -302,6 +302,27 @@
                 .progress-container { max-width: none; }
 
                 #floating-audio-player:hover { transform: none; }
+                /* Make sure collapsed state actually reduces size on small screens */
+                #floating-audio-player.collapsed {
+                    min-width: 64px; /* much smaller on mobile */
+                    padding: 6px 8px;
+                    border-radius: 12px;
+                }
+
+                #floating-audio-player.collapsed .player-info,
+                #floating-audio-player.collapsed .progress-container {
+                    display: none;
+                }
+
+                #floating-audio-player.collapsed .control-btn {
+                    width: 34px;
+                    height: 34px;
+                }
+
+                #floating-audio-player.collapsed .play-pause-btn {
+                    width: 40px;
+                    height: 40px;
+                }
             }
 
             @media (max-width: 480px) {
@@ -310,6 +331,16 @@
                 .control-btn { width: 34px; height: 34px; }
                 .play-pause-btn { width: 44px; height: 44px; }
                 .progress-container { max-width: none; }
+                /* Collapsed tweaks for very small screens */
+                #floating-audio-player.collapsed {
+                    min-width: 56px;
+                    padding: 4px 6px;
+                }
+
+                #floating-audio-player.collapsed .player-info,
+                #floating-audio-player.collapsed .progress-container {
+                    display: none;
+                }
             }
         `;
 
@@ -332,6 +363,24 @@
         elements.floatingMinimizeBtn = document.getElementById('floating-minimize-btn');
         elements.floatingSeekMinusBtn = document.getElementById('floating-seek-minus-btn');
         elements.floatingSeekPlusBtn = document.getElementById('floating-seek-plus-btn');
+
+        // initialize accessibility attributes for minimize button
+        if (elements.floatingMinimizeBtn) {
+            elements.floatingMinimizeBtn.setAttribute('role', 'button');
+            elements.floatingMinimizeBtn.setAttribute('aria-pressed', 'false');
+        }
+
+        // restore persisted collapsed state
+        try {
+            if (localStorage.getItem('floatingPlayerCollapsed') === '1') {
+                elements.floatingPlayer.classList.add('collapsed');
+                if (elements.floatingMinimizeBtn) {
+                    elements.floatingMinimizeBtn.setAttribute('aria-pressed', 'true');
+                    elements.floatingMinimizeBtn.setAttribute('title', 'تكبير المشغل');
+                    elements.floatingMinimizeBtn.setAttribute('aria-label', 'تكبير المشغل');
+                }
+            }
+        } catch (e) {}
 
     // ensure main audio loop follows repeat state
     if (elements.mainAudio) elements.mainAudio.loop = !!isRepeat;
@@ -397,7 +446,12 @@
                 if (!elements.floatingPlayer) return;
                 elements.floatingPlayer.classList.toggle('collapsed');
                 const collapsed = elements.floatingPlayer.classList.contains('collapsed');
+                // update accessible attributes
                 elements.floatingMinimizeBtn.setAttribute('title', collapsed ? 'تكبير المشغل' : 'تصغير المشغل');
+                elements.floatingMinimizeBtn.setAttribute('aria-pressed', String(!!collapsed));
+                elements.floatingMinimizeBtn.setAttribute('aria-label', collapsed ? 'تكبير المشغل' : 'تصغير المشغل');
+                // persist collapsed state for next visit
+                try { localStorage.setItem('floatingPlayerCollapsed', collapsed ? '1' : '0'); } catch (e) {}
             });
         }
 
