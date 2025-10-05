@@ -2,29 +2,26 @@
 <html lang="ar">
 <head>
     <meta charset="utf-8">
-    <title>الشيخ محمد رفعت - جميع السور</title>
+    <title>الشيخ أحمد خليل شاهين - جميع السور</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/styles2.css">
 </head>
-<body data-reciter-name="الشيخ ياسر الدوسرى" data-reciter-base="https://server11.mp3quran.net/yasser/">
+<body data-reciter-name="الشيخ أحمد خليل شاهين" data-reciter-base="https://server16.mp3quran.net/shaheen/Rewayat-Hafs-A-n-Assem/">
     <button id="toggleSideBtn" aria-controls="side-menu" aria-expanded="true" title="إخفاء/إظهار القائمة" style="position:fixed; top:16px; right:10px; z-index:1001; background:#148b4e; color:#fff; border:none; padding:8px 12px; border-radius:20px; cursor:pointer; box-shadow:0 2px 6px rgba(0,0,0,0.12); font-weight:bold;">إخفاء القائمة</button>
 
-<!-- أضف هذا الكود قبل <div class="container"> مباشرة لجعل القائمة الجانبية صغيرة وأنيقة -->
 <div id="side-menu" style="position:fixed; top:60px; right:10px; width:130px; max-height:70vh; overflow-y:auto; background:#fff; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.10); padding:8px 4px; z-index:1000;">
     <div style="font-weight:bold; color:#148b4e; margin-bottom:8px; text-align:center; font-size:1em;">السطور</div>
     <ul id="surah-list" style="list-style:none; padding:0; margin:0;"></ul>
 </div>
     
-    
     <script>
-        // per-page reciter config for shared player (JSON string to avoid parser issues)
-        window.RECITER = JSON.parse('{"name":"الشيخ ياسر الدوسرى","base":"https://server11.mp3quran.net/yasser/"}');
+        window.RECITER = JSON.parse('{"name":"الشيخ أحمد خليل شاهين","base":"https://server16.mp3quran.net/shaheen/Rewayat-Hafs-A-n-Assem/"}');
     </script>
     <div class="container">
         <div class="header-row">
-            <span class="reciter-name">الشيخ ياسر الدوسرى</span>
-              </div>
-             <p style="text-align:center; margin-top:20px; font-weight:bold; color:#148b4e;">
+            <span class="reciter-name">الشيخ أحمد خليل شاهين</span>
+        </div>
+        <p style="text-align:center; margin-top:20px; font-weight:bold; color:#148b4e;">
             يمكنك استخدام شريط التغيير في الأسفل للتنقل السريع بين السور.
         </p>
  
@@ -43,7 +40,7 @@
                     <th>استمع</th>
                 </tr>
             </thead>
-            <tbody id="surah-table-body"> <!-- سيتم ملء الجدول تلقائياً بالسكريبت -->
+            <tbody id="surah-table-body">
             </tbody>
         </table>
 
@@ -55,17 +52,12 @@
                 <span id="currentSurah" style="font-weight:bold; color:#148b4e;"></span>
             </div>
             <audio id="mainAudio" style="margin-top:15px; width:90%;" controls>
-                <source id="audioSource" src="https://server11.mp3quran.net/yasser/001.mp3" type="audio/mpeg">
+                <source id="audioSource" src="https://server16.mp3quran.net/shaheen/Rewayat-Hafs-A-n-Assem/001.mp3" type="audio/mpeg">
                 متصفحك لا يدعم تشغيل الصوت.
             </audio>
         </div>
 
         <script src="../js/surah-player.js"></script>
     </div>
-
 </body>
-
 </html>
-
-
-
