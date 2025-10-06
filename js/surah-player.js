@@ -123,20 +123,20 @@
         const styles = `
             #floating-audio-player {
                 position: fixed;
-                bottom: 16px;
+                bottom: 12px;
                 left: 50%;
                 transform: translateX(-50%);
                 background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                border-radius: 20px;
-                padding: 10px 16px;
-                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-                backdrop-filter: blur(8px);
+                border-radius: 14px;
+                padding: 8px 12px;
+                box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+                backdrop-filter: blur(6px);
                 border: 1px solid rgba(255, 255, 255, 0.08);
                 z-index: 10000;
-                min-width: 260px;
-                transition: all 0.22s ease;
+                min-width: 220px;
+                transition: all 0.18s ease;
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                font-size: 13px;
+                font-size: 12px;
             }
 
             #floating-audio-player:hover {
@@ -181,24 +181,24 @@
             .control-btn {
                 background: rgba(255, 255, 255, 0.18);
                 border: none;
-                border-radius: 10px;
-                width: 44px;
-                height: 44px;
+                border-radius: 8px;
+                width: 36px;
+                height: 36px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 cursor: pointer;
-                transition: all 0.18s ease;
+                transition: all 0.14s ease;
                 color: white;
-                backdrop-filter: blur(8px);
+                backdrop-filter: blur(6px);
             }
 
             .control-btn.small {
-                width: 32px;
-                height: 32px;
-                border-radius: 8px;
-                background: rgba(255,255,255,0.1);
-                font-size: 12px;
+                width: 28px;
+                height: 28px;
+                border-radius: 7px;
+                background: rgba(255,255,255,0.08);
+                font-size: 11px;
             }
 
             .control-btn:hover {
@@ -212,8 +212,8 @@
 
             .play-pause-btn {
                 background: rgba(255, 255, 255, 0.28);
-                width: 52px;
-                height: 52px;
+                width: 48px;
+                height: 48px;
             }
 
             .play-pause-btn:hover {
@@ -222,7 +222,7 @@
 
             .progress-container {
                 width: 100%;
-                max-width: 220px;
+                max-width: 180px;
             }
 
             .progress-bar {
@@ -296,15 +296,15 @@
                     padding: 8px 10px;
                 }
 
-                .control-btn { width: 36px; height: 36px; }
-                .play-pause-btn { width: 46px; height: 46px; }
-                .control-btn.small { width: 28px; height: 28px; }
+                .control-btn { width: 34px; height: 34px; }
+                .play-pause-btn { width: 44px; height: 44px; }
+                .control-btn.small { width: 26px; height: 26px; }
                 .progress-container { max-width: none; }
 
                 #floating-audio-player:hover { transform: none; }
                 /* Make sure collapsed state actually reduces size on small screens */
                 #floating-audio-player.collapsed {
-                    min-width: 64px; /* much smaller on mobile */
+                    min-width: 56px; /* much smaller on mobile */
                     padding: 6px 8px;
                     border-radius: 12px;
                 }
@@ -333,7 +333,7 @@
                 .progress-container { max-width: none; }
                 /* Collapsed tweaks for very small screens */
                 #floating-audio-player.collapsed {
-                    min-width: 56px;
+                    min-width: 50px;
                     padding: 4px 6px;
                 }
 
@@ -440,19 +440,53 @@
             });
         }
 
-        // Minimize button
+        // Minimize button (improved behavior for touch/mobile)
         if (elements.floatingMinimizeBtn) {
-            elements.floatingMinimizeBtn.addEventListener('click', function () {
-                if (!elements.floatingPlayer) return;
-                elements.floatingPlayer.classList.toggle('collapsed');
-                const collapsed = elements.floatingPlayer.classList.contains('collapsed');
-                // update accessible attributes
-                elements.floatingMinimizeBtn.setAttribute('title', collapsed ? 'تكبير المشغل' : 'تصغير المشغل');
-                elements.floatingMinimizeBtn.setAttribute('aria-pressed', String(!!collapsed));
-                elements.floatingMinimizeBtn.setAttribute('aria-label', collapsed ? 'تكبير المشغل' : 'تصغير المشغل');
-                // persist collapsed state for next visit
-                try { localStorage.setItem('floatingPlayerCollapsed', collapsed ? '1' : '0'); } catch (e) {}
-            });
+            // Single toggle function with short debounce to avoid double-handling of pointer+click
+            var _lastToggle = 0;
+            function toggleFloatingCollapsed(evt) {
+                try {
+                    var now = Date.now();
+                    if (now - _lastToggle < 450) return; // ignore duplicate events
+                    _lastToggle = now;
+
+                    if (!elements.floatingPlayer) return;
+                    var collapsed = elements.floatingPlayer.classList.toggle('collapsed');
+
+                    // Apply inline fallbacks so mobile always visually collapses even if CSS is overridden
+                    if (collapsed) {
+                        elements.floatingPlayer.style.minWidth = '56px';
+                        elements.floatingPlayer.style.padding = '6px 8px';
+                        // hide non-essential parts
+                        if (elements.floatingCurrentSurah) elements.floatingCurrentSurah.style.display = 'none';
+                        var progressContainer = document.getElementById('floating-progress-bar') && document.getElementById('floating-progress-bar').parentElement;
+                        if (progressContainer) progressContainer.style.display = 'none';
+                        // reduce control sizes
+                        Array.prototype.forEach.call(elements.floatingPlayer.querySelectorAll('.control-btn'), function (b) { b.style.width = '34px'; b.style.height = '34px'; });
+                    } else {
+                        // restore
+                        elements.floatingPlayer.style.minWidth = '';
+                        elements.floatingPlayer.style.padding = '';
+                        if (elements.floatingCurrentSurah) elements.floatingCurrentSurah.style.display = '';
+                        var progressContainer = document.getElementById('floating-progress-bar') && document.getElementById('floating-progress-bar').parentElement;
+                        if (progressContainer) progressContainer.style.display = '';
+                        Array.prototype.forEach.call(elements.floatingPlayer.querySelectorAll('.control-btn'), function (b) { b.style.width = ''; b.style.height = ''; });
+                    }
+
+                    // update accessible attributes
+                    elements.floatingMinimizeBtn.setAttribute('title', collapsed ? 'تكبير المشغل' : 'تصغير المشغل');
+                    elements.floatingMinimizeBtn.setAttribute('aria-pressed', String(!!collapsed));
+                    elements.floatingMinimizeBtn.setAttribute('aria-label', collapsed ? 'تكبير المشغل' : 'تصغير المشغل');
+                    // persist collapsed state for next visit
+                    try { localStorage.setItem('floatingPlayerCollapsed', collapsed ? '1' : '0'); } catch (e) {}
+                } catch (e) {
+                    console.warn('toggleFloatingCollapsed error', e);
+                }
+            }
+
+            // Attach to both click and pointerdown for better responsiveness on touch devices
+            elements.floatingMinimizeBtn.addEventListener('click', toggleFloatingCollapsed);
+            elements.floatingMinimizeBtn.addEventListener('pointerdown', toggleFloatingCollapsed);
         }
 
         // Update progress bar
@@ -621,19 +655,30 @@
                 throw new Error('Surah not found');
             }
 
-            // Create invisible anchor element
+            // Create invisible anchor element. For cross-origin URLs the download attribute is ignored
+            // so open in a new tab instead. For same-origin, set download to force save.
             const downloadLink = document.createElement('a');
             downloadLink.href = surah.file;
-            downloadLink.download = `سورة ${surah.name}.mp3`;
             downloadLink.style.display = 'none';
-            
-            // Add to document and trigger click
+            downloadLink.target = '_blank';
+            downloadLink.rel = 'noopener noreferrer';
+
+            try {
+                const u = new URL(surah.file, location.href);
+                if (u.origin === location.origin) {
+                    downloadLink.download = `سورة ${surah.name}.mp3`;
+                }
+            } catch (err) {
+                // ignore URL parse errors and treat as cross-origin
+            }
+
+            // Add to document and trigger click (will open in new tab for cross-origin)
             document.body.appendChild(downloadLink);
             downloadLink.click();
             document.body.removeChild(downloadLink);
 
             // Show download status
-            showDownloadStatus(`جاري تحميل سورة ${surah.name}...`);
+            showDownloadStatus(`جاري تنزيل سورة ${surah.name}...`);
 
         } catch (error) {
             console.error('Download error:', error);
