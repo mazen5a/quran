@@ -649,43 +649,67 @@
 
     // Enhanced download function that works immediately
     function downloadSurah(surahIndex, surahName) {
-        try {
-            const surah = surahs[surahIndex];
-            if (!surah) {
-                throw new Error('Surah not found');
-            }
-
-            // Create invisible anchor element. For cross-origin URLs the download attribute is ignored
-            // so open in a new tab instead. For same-origin, set download to force save.
-            const downloadLink = document.createElement('a');
-            downloadLink.href = surah.file;
-            downloadLink.style.display = 'none';
-            downloadLink.target = '_blank';
-            downloadLink.rel = 'noopener noreferrer';
-
+        // Use an async IIFE so callers can remain sync
+        (async function () {
             try {
-                const u = new URL(surah.file, location.href);
-                if (u.origin === location.origin) {
-                    downloadLink.download = `سورة ${surah.name}.mp3`;
+                const surah = surahs[surahIndex];
+                if (!surah) throw new Error('Surah not found');
+
+                // First try to fetch the file and download as a blob (works when server allows CORS)
+                try {
+                    showDownloadStatus(`جاري تنزيل سورة ${surah.name}...`);
+                    // If the server doesn't allow CORS, you can set window.DOWNLOAD_PROXY to
+                    // a CORS-enabled proxy URL prefix (e.g. 'https://your-proxy.example.com/').
+                    // Example (in page): <script>window.DOWNLOAD_PROXY = 'https://cors-proxy.example.com/';</script>
+                    var fetchUrl = (window && window.DOWNLOAD_PROXY) ? (window.DOWNLOAD_PROXY + surah.file) : surah.file;
+                    const resp = await fetch(fetchUrl, { mode: 'cors' });
+                    if (resp.ok) {
+                        const blob = await resp.blob();
+                        const blobUrl = URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+                        a.href = blobUrl;
+                        a.download = `سورة ${surah.name}.mp3`;
+                        a.style.display = 'none';
+                        document.body.appendChild(a);
+                        a.click();
+                        document.body.removeChild(a);
+                        URL.revokeObjectURL(blobUrl);
+                        showDownloadStatus(`تم تنزيل سورة ${surah.name}`);
+                        return;
+                    }
+                } catch (fetchErr) {
+                    // fetch may fail due to CORS or network; we'll fallback to opening the file
+                    console.warn('Fetch download failed (will fallback to open in new tab):', fetchErr);
                 }
-            } catch (err) {
-                // ignore URL parse errors and treat as cross-origin
+
+                // If fetch didn't work, try a direct anchor click (may open in new tab) — still user-initiated
+                try {
+                    const link = document.createElement('a');
+                    link.href = surah.file;
+                    // attempt to set download when same-origin
+                    try { const u = new URL(surah.file, location.href); if (u.origin === location.origin) link.download = `سورة ${surah.name}.mp3`; } catch (e) {}
+                    link.target = '_blank';
+                    link.rel = 'noopener noreferrer';
+                    link.style.display = 'none';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    showDownloadStatus(`تم فتح سورة ${surah.name} في نافذة جديدة`);
+                    return;
+                } catch (openErr) {
+                    console.warn('Direct link click failed, trying window.open fallback:', openErr);
+                }
+
+                // Last resort
+                window.open(surah.file, '_blank');
+                showDownloadStatus(`تم فتح سورة ${surah.name} في نافذة جديدة`);
+
+            } catch (error) {
+                console.error('Download error:', error);
+                try { window.open(surahs[surahIndex] && surahs[surahIndex].file, '_blank'); } catch (e) {}
+                showDownloadStatus('حدث خطأ عند محاولة التنزيل');
             }
-
-            // Add to document and trigger click (will open in new tab for cross-origin)
-            document.body.appendChild(downloadLink);
-            downloadLink.click();
-            document.body.removeChild(downloadLink);
-
-            // Show download status
-            showDownloadStatus(`جاري تنزيل سورة ${surah.name}...`);
-
-        } catch (error) {
-            console.error('Download error:', error);
-            // Fallback: open in new tab
-            window.open(surahs[surahIndex].file, '_blank');
-            showDownloadStatus(`تم فتح سورة ${surahs[surahIndex].name} في نافذة جديدة`);
-        }
+        })();
     }
 
     function showDownloadStatus(message) {
