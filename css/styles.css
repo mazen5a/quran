@@ -178,27 +178,64 @@ body {
 }
 
 .reciters-list {
-  max-height: 350px;   /* ارتفاع مناسب */
-  overflow-y: auto;    /* يخلي القائمة سكرول */
-  border: 1px solid #eee;
-  border-radius: 6px;
-  padding-right: 8px;
-  margin-top: 10px;
+    max-height: 350px;            /* ارتفاع مناسب */
+    overflow-y: auto;            /* يسمح بالتمرير */
+    border: none;                /* نفّذ التصميم ككرت بدون حد صلب */
+    border-radius: 14px;
+    padding: 10px;               /* مسافات داخلية متناسقة */
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;                    /* مسافة بين كل عنصر */
+    background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.75));
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    scroll-behavior: smooth;     /* تمرير سلس */
+    -webkit-overflow-scrolling: touch; /* تمرير سلس على iOS */
+    overscroll-behavior: contain;
+    padding-right: 6px;
 }
 
+/* Make each reciter inside the list look like a soft card */
+.reciters-list .reciter {
+    background: linear-gradient(180deg, #ffffff, #fbfffb);
+    padding: 12px 14px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    cursor: pointer;
+    border: 1px solid rgba(0,0,0,0.04);
+}
 
-/* Scrollbar Design */
+.reciters-list .reciter:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+    background: linear-gradient(180deg, #ffffff, #f7fff7);
+}
+
+.reciters-list .reciter:active {
+    transform: translateY(-1px) scale(0.998);
+}
+
+.reciters-list .reciter .reciter-name {
+    color: #0f3f22; /* deeper green for contrast */
+    font-weight: 700;
+}
+
+/* Refined scrollbar appearance */
 .reciters-list::-webkit-scrollbar {
-  width: 8px;
+    width: 7px;
 }
 .reciters-list::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 10px;
+    background: transparent;
 }
 .reciters-list::-webkit-scrollbar-thumb {
-  background: #44bd32;
-  border-radius: 10px;
+    background: linear-gradient(180deg, #6fdc8a, #44bd32);
+    border-radius: 10px;
+    border: 2px solid rgba(255,255,255,0.6);
 }
 .reciters-list::-webkit-scrollbar-thumb:hover {
-  background: #009432;
+    background: linear-gradient(180deg, #4fc36f, #009432);
 }
