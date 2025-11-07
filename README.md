@@ -15,4 +15,4 @@
 > **ملاحظة:** إن المشروع ليس للاستخدام المحلي فقط، بل يمكن النشر مباشرة.  
 1. استنساخ الريبو:  
    ```bash
-   git clone https://github.com/username/projectname.git
+   git clone https://github.com/mazen5a/quran.git
