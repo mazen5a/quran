@@ -46,6 +46,8 @@
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+  <link rel="stylesheet" href="css/index.css"> 
+
   
   <link rel="icon" type="image/png" href="../images/logo2.png">
 
@@ -60,383 +62,7 @@
     />
     <meta property="og:image" content="images/logo2.png" />
     <meta property="og:type" content="website" />
-
-    <meta property="og:image" content="https://mazen-ghazly.online/images/logo2.png?v=2">
-
-  
-  
-    <style>
-        /* CSS Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        :root {
-            --primary: #8a2be2;
-            --secondary: #4b0082;
-            --accent: #00bfff;
-            --dark: #0a0a1a;
-            --light: #f0f8ff;
-        }
-        
-        body {
-            background-color: var(--dark);
-            color: var(--light);
-            line-height: 1.6;
-            overflow-x: hidden;
-            background-image: 
-                radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 4px),
-                radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 3px),
-                radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 4px);
-            background-size: 550px 550px, 350px 350px, 250px 250px;
-            background-position: 0 0, 40px 60px, 130px 270px;
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        /* Header Styles */
-        header {
-            padding: 20px 0;
-            position: relative;
-            z-index: 10;
-        }
-        
-        .logo {
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--accent);
-            text-shadow: 0 0 10px var(--accent);
-            margin-bottom: 10px;
-        }
-        
-        .tagline {
-            color: var(--light);
-            font-size: 1.2rem;
-            opacity: 0.8;
-        }
-        
-        /* Navigation */
-        nav {
-            margin: 20px 0;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        
-        nav a {
-            color: var(--light);
-            text-decoration: none;
-            padding: 8px 15px;
-            border-radius: 20px;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(138, 43, 226, 0.3);
-        }
-        
-        nav a:hover {
-            background-color: var(--primary);
-            box-shadow: 0 0 15px var(--primary);
-        }
-        
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            padding: 80px 0;
-            position: relative;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, rgba(138, 43, 226, 0.2) 0%, transparent 70%);
-            z-index: -1;
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            background: linear-gradient(45deg, var(--accent), var(--primary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
-            color: #ccc;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            padding: 12px 30px;
-            background: linear-gradient(45deg, var(--primary), var(--accent));
-            color: white;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 30px rgba(138, 43, 226, 0.8);
-        }
-        
-        /* Projects Section */
-        .projects {
-            padding: 80px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-            color: var(--accent);
-            position: relative;
-        }
-        
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 100px;
-            height: 3px;
-            background: linear-gradient(45deg, var(--primary), var(--accent));
-            margin: 10px auto;
-            border-radius: 3px;
-        }
-        
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .project-card {
-            background: rgba(10, 10, 30, 0.7);
-            border-radius: 15px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(138, 43, 226, 0.3);
-            backdrop-filter: blur(10px);
-        }
-        
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.3);
-            border-color: var(--primary);
-        }
-        
-        .project-image {
-            height: 200px;
-            background: linear-gradient(45deg, var(--secondary), var(--primary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 3rem;
-        }
-        
-        .project-content {
-            padding: 20px;
-        }
-        
-        .project-title {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: var(--accent);
-        }
-        
-        .project-description {
-            color: #ccc;
-            margin-bottom: 15px;
-        }
-        
-        .project-link {
-            display: inline-block;
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-        
-        .project-link:hover {
-            color: var(--accent);
-        }
-        
-        /* Health Section - Placeholder */
-        .health-section {
-            padding: 80px 0;
-            text-align: center;
-            background: rgba(10, 10, 30, 0.5);
-            margin: 40px 0;
-            border-radius: 15px;
-            border: 1px dashed rgba(138, 43, 226, 0.5);
-        }
-        
-        .health-section h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: var(--accent);
-        }
-        
-        .health-section p {
-            max-width: 600px;
-            margin: 0 auto;
-            color: #aaa;
-        }
-        
-        /* About Section */
-        .about {
-            padding: 80px 0;
-        }
-        
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-        
-        .about-text {
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        .about-text h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--accent);
-        }
-        
-        .about-text p {
-            margin-bottom: 15px;
-            color: #ccc;
-        }
-        
-        .about-image {
-            flex: 1;
-            min-width: 300px;
-            height: 400px;
-            background: linear-gradient(45deg, var(--secondary), var(--primary));
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 5rem;
-            color: white;
-            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.3);
-        }
-        
-        /* Footer */
-        footer {
-            background: rgba(10, 10, 30, 0.8);
-            padding: 40px 0;
-            text-align: center;
-            margin-top: 60px;
-            border-top: 1px solid rgba(138, 43, 226, 0.3);
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 20px 0;
-        }
-        
-        .social-links a {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            background: rgba(138, 43, 226, 0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--light);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        
-        .social-links a:hover {
-            background: var(--primary);
-            transform: translateY(-5px);
-        }
-        
-        .copyright {
-            color: #aaa;
-            margin-top: 20px;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            nav ul {
-                justify-content: center;
-            }
-            
-            .about-content {
-                flex-direction: column;
-            }
-        }
-        
-        /* Animations */
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-        
-        .floating {
-            animation: float 5s ease-in-out infinite;
-        }
-        
-        /* Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        
-        ::-webkit-scrollbar-track {
-            background: var(--dark);
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: var(--primary);
-            border-radius: 4px;
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--accent);
-        }
-    </style>
+    <meta property="og:image" content="https://mazen-ghazly.online/images/logo2.png?v=2"> 
 </head>
 <body>
     <!-- Header -->
@@ -478,7 +104,7 @@
                     <div class="project-content">
                         <h3 class="project-title">موقع القرآن الكريم</h3>
                         <p class="project-description">موقع متكامل للقرآن الكريم مع إمكانية الاستماع والتلاوة والتفسير.</p>
-                        <a href="projects/quran.html" class="project-link">زيارة الموقع</a>
+                        <a href="projects/quran.html" target="_blank" class="project-link">زيارة الموقع</a>
                     </div>
                 </div>
                 
@@ -490,7 +116,7 @@
                     <div class="project-content">
                         <h3 class="project-title">البروفايل الشخصي</h3>
                         <p class="project-description">صفحتي الشخصية التي تعرض مهاراتي وخبراتي ومشاريعي السابقة.</p>
-                        <a href="projects/profile.html" class="project-link">زيارة الموقع</a>
+                        <a href="projects/profile.html" target="_blank" class="project-link">زيارة الموقع</a>
                     </div>
                 </div>
                 
@@ -502,7 +128,7 @@
                     <div class="project-content">
                         <h3 class="project-title">مشروع قيد التطوير</h3>
                         <p class="project-description">مشروع جديد قيد التطوير سيتم إطلاقه قريباً.</p>
-                        <a href="#" class="project-link">قريباً</a>
+                        <a href="#" target="_blank" class="project-link">قريباً</a>
                     </div>
                 </div>
             </div>
@@ -539,36 +165,7 @@
             <p class="copyright">جميع الحقوق محفوظة &copy; 2023 Mazen Ghazly</p>
         </div>
     </footer>
-
-    <script>
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 50,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        // Add floating animation to project cards on hover
-        document.querySelectorAll('.project-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.classList.add('floating');
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.classList.remove('floating');
-            });
-        });
-    </script>
+<script src="../js/index.js"></script>
+    
 </body>
 </html>
