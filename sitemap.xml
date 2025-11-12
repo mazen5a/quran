@@ -1,19 +1,26 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://mazen-ghazly.online/</loc>
-    <lastmod>2025-11-07</lastmod>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://mazen-ghazly.online/projects/profile.html</loc>
-    <lastmod>2025-11-07</lastmod>
-    <priority>0.9</priority>
-  </url>
-   <url>
-    <loc>https://mazen-ghazly.online/projects/quran.html</loc>
-    <lastmod>2025-11-07</lastmod>
-    <priority>1.0</priority>
-  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://mazen-ghazly.online/index.html</loc><priority>0.8</priority></url>
+  <url><loc>https://mazen-ghazly.online/google312323878b755634.html</loc><priority>0.8</priority></url>
+  <url><loc>https://mazen-ghazly.online/projects/google312323878b755634.html</loc><priority>0.8</priority></url>
+  <url><loc>https://mazen-ghazly.online/projects/quran.html</loc><priority>0.8</priority></url>
+  <url><loc>https://mazen-ghazly.online/projects/profile.html</loc><priority>0.8</priority></url>
+  <url><loc>https://mazen-ghazly.online/quran-pages/Hani- Al-Rifai.html</loc><priority>0.8</priority></url>
+  <url><loc>https://mazen-ghazly.online/quran-pages/ahmed-nuaina.html</loc><priority>0.8</priority></url>
+  <url><loc>https://mazen-ghazly.online/quran-pages/yaseen-al-jazairy.html</loc><priority>0.8</priority></url>
+  <url><loc>https://mazen-ghazly.online/quran-pages/abu-bakr-shatri.html</loc><priority>0.8</priority></url>
+  <url><loc>https://mazen-ghazly.online/quran-pages/mustafaa.html</loc><priority>0.8</priority></url>
+  <url><loc>https://mazen-ghazly.online/quran-pages/altabluaa.html</loc><priority>0.8</priority></url>
+  <url><loc>https://mazen-ghazly.online/quran-pages/mahmoud-khalil.html</loc><priority>0.8</priority></url>
+  <url><loc>https://mazen-ghazly.online/quran-pages/alminshawi.html</loc><priority>0.8</priority></url>
+  <url><loc>https://mazen-ghazly.online/quran-pages/ahmed-khalel-shaheen.html</loc><priority>0.8</priority></url>
+  <url><loc>https://mazen-ghazly.online/quran-pages/Yasser-al-Dosari.html</loc><priority>0.8</priority></url>
+  <url><loc>https://mazen-ghazly.online/quran-pages/Ahmed-Al-Ajam.html</loc><priority>0.8</priority></url>
+  <url><loc>https://mazen-ghazly.online/quran-pages/mishary-rashid-alafasy.html</loc><priority>0.8</priority></url>
+  <url><loc>https://mazen-ghazly.online/quran-pages/eabd-albasit.html</loc><priority>0.8</priority></url>
+  <url><loc>https://mazen-ghazly.online/quran-pages/hassan-saleh.html</loc><priority>0.8</priority></url>
+  <url><loc>https://mazen-ghazly.online/quran-pages/a-jpr.html</loc><priority>0.8</priority></url>
+  <url><loc>https://mazen-ghazly.online/quran-pages/abdelrahman-sudais.html</loc><priority>0.8</priority></url>
+  <url><loc>https://mazen-ghazly.online/quran-pages/maher-al-muaiqly.html</loc><priority>0.8</priority></url>
+  <url><loc>https://mazen-ghazly.online/quran-pages/mansour-al-salmi.html</loc><priority>0.8</priority></url>
 </urlset>
