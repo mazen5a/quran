@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script>
+    // خد الرابط اللي المستخدم فتحه
+    const current = window.location.pathname;
+
+    // لو الصفحة الحقيقية موجودة في نفس المجلد  
+    // مثال: /projects/quran  →  /projects/quran.html
+    if (!current.endsWith('.html')) {
+      const htmlPath = current.replace(/\/$/, "") + ".html";
+      window.location.replace(htmlPath);
+    }
+  </script>
+</head>
+<body></body>
+</html>
