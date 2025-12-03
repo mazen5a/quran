@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ar">
+  
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover" />
+
+    <!-- محركات البحث -->
+    <meta name="description"
+        content="استمع لتلاوات القرآن الكريم بصوت كبار القراء مباشرة بدون تسجيل. موقع سريع وسهل الاستخدام.">
+    <meta name="keywords"
+        content="القرآن الكريم, تلاوات, استماع القرآن, قراء, المنشاوي, الحصري, عبد الباسط, تلاوة, قرآن اونلاين">
+    <meta name="author" content="Mazen Ghazly" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- OG Meta -->
+    <meta property="og:title" content="القرآن الكريم - استمع لتلاوات أشهر القراء" />
+    <meta property="og:description"
+        content="استمع لتلاوات القرآن الكريم بصوت كبار القراء مباشرة بدون تسجيل. جميع الشيوخ هنا في منصة واحدة." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://mazen-ghazly.online/projects/quran.html" />
+    <meta property="og:image" content="https://mazen-ghazly.online/images/logo.jpg?v=3" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://mazen-ghazly.online/images/logo.jpg?v=3" />
+
+    <!-- Sitemap -->
+    <link rel="sitemap" type="application/xml" href="https://mazen-ghazly.online/sitemap.xml" />
+
+    <!-- Structured Data (SEO) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "القرآن الكريم - Mazen Ghazly",
+        "url": "https://mazen-ghazly.online/projects/quran.html",
+        "description": "استمع لتلاوات القرآن الكريم بصوت كبار القراء مباشرة بدون تسجيل.",
+        "inLanguage": "ar",
+        "isFamilyFriendly": true
+    }
+    </script>
+
+    <!-- سرعة التحميل -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Status Bar color على الموبايل -->
+    <meta name="theme-color" content="#0c164f" />
+
+    <!-- العنوان -->
+    <title>القرآن الكريم - منصة Mazen Ghazly</title>
+
+    <!-- ملفات CSS -->
+    <link rel="stylesheet" href="../css/quran.css" />
+</head>
+
+<body>
+
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T2JPFWVC"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    
+    <!-- نافذة الصلاة على النبي -->
+    <div id="salatModal" class="modal-overlay">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeSalatModal()" title="إغلاق">×</button>
+            <div class="modal-emoji">🕋</div>
+            <div class="modal-title">صَلِّ على محمد ﷺ</div>
+            <div style="color:#273c75;margin-top:8px;">اللهم صل وسلم وبارك على سيدنا محمد</div>
+        </div>
+    </div>
+    <div class="planet-bg">
+        <span class="planet-core">📖</span>
+        <header>
+            <h1>منصة تلاوة القرآن الكريم</h1>
+            <p>استمع لتلاوات أشهر القراء بدون تسجيل دخول</p>
+        </header>
+        <a href="profile.html" class="creator-btn" >👨‍🚀 المنشئ</a>
+    </div>
+    <nav>
+        <a href="#reciters">الشيوخ</a>
+        <a href="#about">عن الصفحة</a>
+        <a href="#contact">تواصل</a>
+    </nav>
+    <div class="container" id="reciters">
+        <h2 style="text-align:center;">اختر القارئ للاستماع</h2>
+
+    <h2>الشيوخ</h2>
+
+    <!-- 🔍 مربع البحث -->
+    <div style="text-align:center;margin:12px 0;">
+      <input id="reciterSearch" type="text" placeholder="اكتب اسم الشيخ للبحث..." 
+             style="width:90%; max-width:520px; padding:10px 14px; font-size:1rem; border-radius:8px; border:1px solid #ddd;" />
+      <div id="searchHint" style="color:#666;font-size:0.92rem;margin-top:6px;">
+        اكتب جزء من الاسم أو خطأ إملائي بسيط وسأعرض النتائج.
+      </div>
+    </div>
+
+    <!-- هنا تبدأ عناصر المشايخ -->
+    <div class="reciters-list">
+        <div class="reciter">
+            <span class="reciter-name">الشيخ محمد صديق المنشاوي</span>
+            <button class="enter-btn"  onclick="window.location.href='https://mazen-ghazly.online/quran-pages/alminshawi'">دخول</button>
+        </div>
+        <div class="reciter">
+            <span class="reciter-name">الشيخ عبد الباسط عبد الصمد</span>
+            <button class="enter-btn"  onclick="window.location .href='https://mazen-ghazly.online/quran-pages/eabd-albasit'">دخول</button>
+        </div>
+        <div class="reciter">
+            <span class="reciter-name">الشيخ محمود خليل الحصري</span>
+            <button class="enter-btn"  onclick="window.location.href='https://mazen-ghazly.online/quran-pages/mahmoud-khalil'">دخول</button>
+        </div>
+        <div class="reciter">
+            <span class="reciter-name">الشيخ مصطفى إسماعيل</span>
+            <button class="enter-btn"  onclick="window.location.href='https://mazen-ghazly.online/quran-pages/mustafaa'">دخول</button>
+        </div>
+        <div class="reciter">
+            <span class="reciter-name">الشيخ محمد محمود الطبلواى</span>
+            <button class="enter-btn"  onclick="window.location.href='https://mazen-ghazly.online/quran-pages/altabluaa'">دخول</button>
+        </div>
+        <div class="reciter">
+            <span class="reciter-name">الشيخ ياسر الدوسري</span>
+            <button class="enter-btn"  onclick="window.location.href='https://mazen-ghazly.online/quran-pages/Yasser-al-Dosari'">دخول</button>
+        </div>
+        <div class="reciter">
+            <span class="reciter-name">الشيخ مشاري راشد العفاسي</span>
+            <button class="enter-btn"  onclick="window.location.href='https://mazen-ghazly.online/quran-pages/mishary-rashid-alafasy">دخول</button>
+        </div>
+        <div class="reciter">
+            <span class="reciter-name">الشيخ هاني الرفاعي</span>
+            <button class="enter-btn"  onclick="window.location.href='https://mazen-ghazly.online/quran-pages/Hani- Al-Rifai'">دخول</button>
+        </div>
+        <div class="reciter">
+            <span class="reciter-name">الشيخ أحمد العجمي</span>
+            <button class="enter-btn"  onclick="window.location.href='https://mazen-ghazly.online/quran-pages/Ahmed-Al-Ajam'">دخول</button>
+        </div>
+        <div class="reciter">
+            <span class="reciter-name">الشيخ ياسين الجزائري</span>
+            <button class="enter-btn"  onclick="window.location.href='https://mazen-ghazly.online/quran-pages/yaseen-al-jazairy'">دخول</button>
+        </div>
+        <div class="reciter">
+            <span class="reciter-name">الشيخ أحمد نعينع</span>
+            <button class="enter-btn"  onclick="window.location.href='https://mazen-ghazly.online/quran-pages/ahmed-nuaina'">دخول</button>
+        </div>
+        <div class="reciter">
+            <span class="reciter-name">الشيخ أحمد خليل شاهين</span>
+            <button class="enter-btn"  onclick="window.location.href='https://mazen-ghazly.online/quran-pages/ahmed-khalel-shaheen'">دخول</button>
+        </div>
+        <div class="reciter">
+            <span class="reciter-name">الشيخ ماهر المعقلي</span>
+            <button class="enter-btn"  onclick="window.location.href='https://mazen-ghazly.online/quran-pages/maher-al-muaiqly'">دخول</button>
+        </div>
+        <div class="reciter">
+            <span class="reciter-name">الشيخ عبد الرحمن السديس</span>
+            <button class="enter-btn"  onclick="window.location.href='https://mazen-ghazly.online/quran-pages/abdelrahman-sudais'">دخول</button>
+        </div>
+        <div class="reciter">
+            <span class="reciter-name">الشيخ أبو بكر الشاطري</span>
+            <button class="enter-btn"  onclick="window.location.href='https://mazen-ghazly.online/quran-pages/abu-bakr-shatri'">دخول</button>
+        </div>
+        <div class="reciter">
+            <span class="reciter-name">الشيخ منصور السالمي</span>
+            <button class="enter-btn"  onclick="window.location.href='https://mazen-ghazly.online/quran-pages/mansour-al-salmi'">دخول</button>
+        </div>
+        <div class="reciter">
+            <span class="reciter-name">الشيخ حسن صالح</span>
+            <button class="enter-btn"  onclick="window.location.href='https://mazen-ghazly.online/quran-pages/hassan-saleh'">دخول</button>
+        </div>
+        <div class="reciter">
+            <span class="reciter-name">الشيخ على جابر </span>
+            <button class="enter-btn"  onclick="window.location.href='https://mazen-ghazly.online/quran-pages/a-jpr'">دخول</button>
+        </div>
+    </div> <!-- close .reciters-list -->
+    </div>
+    <div class="container" id="about">
+        <h2>عن الصفحة</h2>
+        <p align="center">صفحة لنشر تلاوات القرآن الكريم بصوت كبار القراء، استمع مباشرة بدون أي تسجيل دخول.</p>
+        <p align="center">الصفحة تهدف لتسهيل الوصول لتلاوات القرآن الكريم بأصوات المشايخ المشهورين.</p>
+        <p align="center">يمكنك الاستماع لأي سورة من خلال اختيار القارئ المناسب.</p>
+        <p align="center">الصفحة متوافقة مع جميع الأجهزة وتعمل بشكل سريع وسهل.</p>
+        <p align="center">إذا كان لديك أي اقتراحات أو ملاحظات، لا تتردد في التواصل معنا.</p>
+        <P align="center">جزاكم الله خيراً على دعمكم ومشاركتكم في نشر القرآن الكريم.</P>
+        <p align="center">نسأل الله أن يجعل هذا العمل خالصاً لوجهه الكريم وأن ينفع به الجميع.</p>
+        <p align="center" style="color:#e84118; font-weight:bold; font-size:1.15em; background: #fffbe6; border-radius: 7px; padding: 7px 0; margin: 10px 0;">
+            لا تنسَ الصلاة على النبي محمد ﷺ في كل وقت وحين.
+        </p>
+    </div>
+    <div class="container" id="contact">
+        <h2>تواصل معنا</h2>
+        <p align="center">للاقتراحات أو الإبلاغ عن مشكلة، تواصل عبر <a href="https://wa.me/201272179381"  style="color:#0097e6;">واتساب</a></p>
+    </div>
+
+    <footer>
+    منصة تلاوة القرآن 2026 &mdash;  M-Ghzaly جميع الحقوق محفوظة بواسطة&copy;
+    </footer>
+    <!-- لافتة غزة -->
+    <div class="gaza-banner">
+        <span>لا تنسوا غزة </span>
+    </div>
+    
+
+
+  <script src="../js/quran.js"></script>
+
+
+</body>
+
+</html>
+
