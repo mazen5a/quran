@@ -3,15 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <script>
-    // خد الرابط اللي المستخدم فتحه
-    const current = window.location.pathname;
+    const path = window.location.pathname.replace(/^\/+/, ""); // يشيل أول "/"
 
-    // لو الصفحة الحقيقية موجودة في نفس المجلد  
-    // مثال: /projects/quran  →  /projects/quran.html
-    if (!current.endsWith('.html')) {
-      const htmlPath = current.replace(/\/$/, "") + ".html";
-      window.location.replace(htmlPath);
-    }
+    // تحويل المسارات النظيفة إلى المسارات الحقيقية
+    const real = "/projects/" + path + ".html";
+
+    window.location.replace(real);
   </script>
 </head>
 <body></body>
