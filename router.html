@@ -1,26 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8" />
-<title>Loading...</title>
+<meta charset="utf-8" />
+<title>Router</title>
 <script>
-// ----------- Router System -------------
-window.onload = () => {
-    const path = window.location.pathname; 
-    let page = path.split("/").pop(); 
+(function(){
+  // إحصل على المسار المطلوب بدون بادئة '/'
+  const raw = window.location.pathname.replace(/^\/+/, "");
+  // لو فتحت router.html مباشرة فاعرض رسالة صغيرة
+  if (raw === "" || raw === "router.html") {
+    document.write("Router active — افتح مسار نظيف مثل /quran");
+    return;
+  }
 
-    // لو الرابط زي /quran
-    if (page === "" || !page.includes(".")) {
-        // اسم الصفحة الحقيقية
-        const realPage = page || "index";
+  // لو المستخدم كتب رابط يتضمن نقطة (ملف بامتداد) — لا نحول
+  if (raw.includes(".")) {
+    // مثلا لو دخلت router.html أو ملف آخر، افعل nothing
+    window.location.replace("/" + raw);
+    return;
+  }
 
-        // إعادة توجيه للملف الحقيقي
-        window.location.href = `/projects/${realPage}.html`;
-    }
-};
+  // خريطة بسيطة: لو أردنا إخفاء مجلد projects
+  // تحويل: /quran  ->  /projects/quran.html
+  const real = "/projects/" + raw + ".html";
+
+  // نوجّه المتصفح إلى الملف الحقيقي
+  window.location.replace(real);
+})();
 </script>
 </head>
-<body>
-جاري التحويل...
-</body>
+<body></body>
 </html>
