@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <script>
-    // شيل أول "/"
-    const clean = window.location.pathname.replace(/^\/+/, "");
+<meta charset="UTF-8" />
+<title>Loading...</title>
+<script>
+// ----------- Router System -------------
+window.onload = () => {
+    const path = window.location.pathname; 
+    let page = path.split("/").pop(); 
 
-    // لو فتح router.html مباشرة.. اخرج
-    if (clean === "router.html" || clean === "") {
-      document.body.innerHTML = "<p>Router active...</p>";
-    } else {
-      // ضيف مجلد المشاريع + .html
-      const realFile = "/projects/" + clean + ".html";
-      window.location.replace(realFile);
+    // لو الرابط زي /quran
+    if (page === "" || !page.includes(".")) {
+        // اسم الصفحة الحقيقية
+        const realPage = page || "index";
+
+        // إعادة توجيه للملف الحقيقي
+        window.location.href = `/projects/${realPage}.html`;
     }
-  </script>
+};
+</script>
 </head>
-<body></body>
+<body>
+جاري التحويل...
+</body>
 </html>
