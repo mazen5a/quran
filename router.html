@@ -3,12 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <script>
-    const path = window.location.pathname.replace(/^\/+/, ""); // يشيل أول "/"
+    // شيل أول "/"
+    const clean = window.location.pathname.replace(/^\/+/, "");
 
-    // تحويل المسارات النظيفة إلى المسارات الحقيقية
-    const real = "/projects/" + path + ".html";
-
-    window.location.replace(real);
+    // لو فتح router.html مباشرة.. اخرج
+    if (clean === "router.html" || clean === "") {
+      document.body.innerHTML = "<p>Router active...</p>";
+    } else {
+      // ضيف مجلد المشاريع + .html
+      const realFile = "/projects/" + clean + ".html";
+      window.location.replace(realFile);
+    }
   </script>
 </head>
 <body></body>
