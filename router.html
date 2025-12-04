@@ -1,112 +1,103 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8" />
 <title>Router</title>
-<script>
-(function(){
-  // إحصل على المسار المطلوب بدون بادئة '/'
-  const raw = window.location.pathname.replace(/^\/+/, "");
-  // لو فتحت router.html مباشرة فاعرض رسالة صغيرة
-  if (raw === "" || raw === "router.html") {
-    document.write("اكتب رابط صح ");
-    return;
-  }
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #141E30, #243B55);
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+    }
+    h1 {
+        font-size: 3rem;
+        margin-bottom: 10px;
+        text-shadow: 0 3px 10px rgba(0,0,0,0.4);
+    }
+    p.description {
+        max-width: 600px;
+        text-align: center;
+        opacity: 0.9;
+        font-size: 1.2rem;
+        margin-bottom: 40px;
+        line-height: 1.8;
+    }
 
-  // لو المستخدم كتب رابط يتضمن نقطة (ملف بامتداد) — لا نحول
-  if (raw.includes(".")) {
-    // مثلا لو دخلت router.html أو ملف آخر، افعل nothing
-    window.location.replace("/" + raw);
-    return;
-  }
+    .links {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 25px;
+        width: 90%;
+        max-width: 900px;
+    }
 
-  // خريطة بسيطة: لو أردنا إخفاء مجلد projects
-  // تحويل: /quran  ->  /projects/quran.html
-  const real = "/projects/" + raw + ".html";
+    .card {
+        background: rgba(255,255,255,0.08);
+        padding: 25px;
+        border-radius: 16px;
+        backdrop-filter: blur(6px);
+        box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        text-align: center;
+        transition: 0.3s;
+        cursor: pointer;
+        text-decoration: none;
+        color: #fff;
+    }
 
-  // نوجّه المتصفح إلى الملف الحقيقي
-  window.location.replace(real);
-})();
-</script>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #fdfbfb, #ebedee);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            margin: 0;
-            padding: 20px;
-        }
+    .card:hover {
+        transform: translateY(-8px);
+        background: rgba(255,255,255,0.15);
+    }
 
-        h1 {
-            color: #222;
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
+    .card h3 {
+        margin: 0;
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+    }
+    .card p {
+        margin: 0;
+        font-size: 0.95rem;
+        opacity: 0.85;
+        line-height: 1.7;
+    }
 
-        p.description {
-            max-width: 600px;
-            text-align: center;
-            color: #555;
-            margin-bottom: 40px;
-            font-size: 1.1rem;
-        }
-
-        .links {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .links a {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            background: linear-gradient(45deg, #6a11cb, #2575fc);
-            color: #fff;
-            padding: 20px 30px;
-            border-radius: 12px;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            width: 180px;
-            text-align: center;
-        }
-
-        .links a:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 20px rgba(0,0,0,0.2);
-        }
-
-        .links a span {
-            font-size: 0.9rem;
-            margin-top: 8px;
-            color: #e0e0e0;
-        }
-    </style>
+</style>
 </head>
 <body>
-    <h1>مرحبًا بك في صفحة الرواتر</h1>
-    <p class="description">اختر أحد الروابط التالية للانتقال بسرعة إلى أهم صفحات الموقع:</p>
-    <h2>هذه الصفحة تظهر عندما تكتب العنوان خطأ</h2>
-    <div class="links">
-        <a href="https://mazen-ghazly.online" target="_blank">
-            home
-            <span>الصفحة الرئيسية للموقع</span>
-        </a>
-        <a href="https://mazen-ghazly.online/p/quran" target="_blank">
-            quran
-            <span>صفحة القرآن الكريم</span>
-        </a>
-        <a href="https://mazen-ghazly.online/p/profile" target="_blank">
-            myprofile
-            <span>صفحة بروفابل</span>
-        </a>
-    </div>
+
+<h1>مرحبًا بك في الراوتر الذكي</h1>
+<h2>(url)الصفحة ديه بتظهر لما تكتب عنوان url غلط </h2>
+<p class="description">
+    دي النسخة المطوّرة من صفحة التوجيه. اختار الصفحة اللي عايز تروح لها.
+    كل زر ليه وصف بسيط علشان تفهم وظيفة الصفحة قبل الدخول.
+</p>
+
+<div class="links">
+
+    <a class="card" href="https://mazen-ghazly.online" target="_blank">
+        <h3>🏠 الصفحة الرئيسية</h3>
+        <p>هنا هتلاقي مقدمة عن الموقع، المعلومات الأساسية، وأحدث التحديثات اللي بتنزل.</p>
+    </a>
+
+    <a class="card" href="https://mazen-ghazly.online/p/quran" target="_blank">
+        <h3>📖 صفحة القرآن الكريم</h3>
+        <p>بتعرض سور القرآن بشكل بسيط ومريح مع إمكانية الانتقال سريعًا لأي سورة.</p>
+    </a>
+
+    <a class="card" href="https://mazen-ghazly.online/p/profile" target="_blank">
+        <h3>👤 بروفايل المستخدم</h3>
+        <p>صفحة فيها معلوماتك، بيانات الحساب، واللينكات المرتبطة بيك داخل الموقع.</p>
+    </a>
+
+</div>
+
 </body>
 </html>
