@@ -26,9 +26,7 @@
                 this.classList.remove('floating');
             });
         });
-        window.onblur = () =>{
-            document.title = 'MAG-FIRE | لييييه؟؟';
-        };
+        
         window.onfocus = () =>{
             document.title = 'MAG-FIRE |هو ده الكلام';
         }
