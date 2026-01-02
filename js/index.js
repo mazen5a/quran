@@ -26,3 +26,9 @@
                 this.classList.remove('floating');
             });
         });
+        window.onblur = () =>{
+            document.title = 'MAG-FIRE | ارجع بسرعة هتموت';
+        };
+        window.onfocus = () =>{
+            document.title = 'MAG-FIRE |هو ده الكلام';
+        }
