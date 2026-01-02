@@ -27,7 +27,7 @@
             });
         });
         window.onblur = () =>{
-            document.title = 'MAG-FIRE | ارجع بسرعة هتموت';
+            document.title = 'MAG-FIRE | لييييه؟؟';
         };
         window.onfocus = () =>{
             document.title = 'MAG-FIRE |هو ده الكلام';
